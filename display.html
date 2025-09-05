@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Display Current Bet</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; padding: 20px; }
+        .form-mimic { background: white; padding: 20px; border-radius: 8px; max-width: 600px; margin: auto; }
+        .section-header, .section-header-summary, .match-section, .summary-item, .summary-first-row-item,
+        .match-played-at, .total-odd-at-match, .summary-match-names-container, .summary-match-name,
+        .summary-match-result, .summary-league-name { margin-bottom: 10px; }
+        .match-section { border: 0.5px solid #dbdbdb; padding: 6px; border-left: none; border-right: none; }
+        .section-header-summary { border: 3px solid #be7302; padding: 6px; display: flex; flex-direction: column; }
+    </style>
+</head>
+
+<body>
+    <div class="form-mimic" id="betContainer">
+        <h2>Current Bet Details</h2>
+        <div id="betDetails"></div>
+        <div id="matchesContainer"></div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+        import { getFirestore, collection, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBb71iS3gC_GCaNba7bIeVtFq4db8v142g",
+            authDomain: "incognitoapp-dc44e.firebaseapp.com",
+            projectId: "incognitoapp-dc44e",
+            storageBucket: "incognitoapp-dc44e.firebasestorage.app",
+            messagingSenderId: "673020420714",
+            appId: "1:673020420714:web:c13942d7451fabf78ba013",
+            measurementId: "G-WWHBT9J427"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        async function loadLatestBet() {
+            const betsRef = collection(db, "bets");
+            // const q = query(betsRef, orderBy("bet_details.bet_time", "desc"), limit(1));
+            const q = query(betsRef, orderBy("createdAt", "desc"), limit(1));
+            const querySnapshot = await getDocs(q);
+
+            if (querySnapshot.empty) {
+                document.getElementById("betContainer").innerHTML = "<p>No bets found.</p>";
+                return;
+            }
+
+            querySnapshot.forEach(docSnap => {
+                const bet = docSnap.data();
+                // Display main bet details
+                const betDetailsDiv = document.getElementById("betDetails");
+                betDetailsDiv.innerHTML = `
+                    <div class="section-header">
+                        <span>Bet ID: ${bet.bet_id}</span>
+                    </div>
+                    <div class="section-header-summary">
+                        <div class="summary-item">Stake: ${bet.bet_details.stake} TSH</div>
+                        <div class="summary-item">Potential Winnings: ${bet.bet_details.potential_winnings} TSH</div>
+                        <div class="summary-item">WHT Tax: ${bet.bet_details.wht_tax} TSH</div>
+                        <div class="summary-item">Payout: ${bet.bet_details.payout} TSH</div>
+                        <div class="summary-item">Bet Time: ${bet.bet_details.bet_time}</div>
+                    </div>
+                `;
+                
+                // Display matches
+                const matchesContainer = document.getElementById("matchesContainer");
+                matchesContainer.innerHTML = "";
+                bet.matches.forEach((match, idx) => {
+                    const matchDiv = document.createElement("div");
+                    matchDiv.className = "match-section";
+                    matchDiv.innerHTML = `
+                        <span>Game ${idx + 1}</span>
+                        <div class="summary-first-row-item">
+                            <div class="match-played-at">
+                                <div>${match.bet_details.match_time}</div>
+                                <div>${match.bet_details.match_date}</div>
+                            </div>
+                            <div class="total-odd-at-match">
+                                <div>${match.bet_details.odds}</div>
+                            </div>
+                        </div>
+                        <div class="summary-match-item">
+                            <div class="summary-match-names-container">
+                                <div class="summary-match-name">${match.home_team}</div>
+                                <span>-</span>
+                                <div class="summary-match-name">${match.away_team}</div>
+                            </div>
+                            <div class="summary-match-result">${match.full_time_score}</div>
+                        </div>
+                        <div class="summary-league-name">${match.league}</div>
+                    `;
+                    matchesContainer.appendChild(matchDiv);
+                });
+            });
+        }
+        loadLatestBet();
+    </script>
+</body>
+
+</html>

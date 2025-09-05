@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fomu ya Kuweka Data ya Beti</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="time"] {
+            width: 50%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .match-section {
+            border: 0.5px solid #dbdbdb;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 23px;
+            font-size: 1.2em;
+            padding: 6px;
+            border-left: none;
+            border-right: none;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 1.2em;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+
+        .section-header-summary {
+            border: 3px solid #be7302;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-top: 14px;
+            font-size: 1.2em;
+            padding-bottom: 3px;
+        }
+
+        .summary-item {
+            margin: 6px 0;
+            padding: 4px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-header-summary .summary-item input {
+            width: 20%;
+            padding: 5px;
+            border: 0.5px solid #d8d8d8;
+            border-radius: 4px;
+        }
+
+        .summary-match-name {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .summary-match-name input {
+            width: 90%;
+            padding: 5px;
+            border: 0.5px solid #d8d8d8;
+            border-radius: 4px;
+        }
+
+        .summary-match-names-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 55%;
+        }
+
+        .summary-match-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            font-size: small;
+        }
+
+        .summary-match-result {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+
+        .summary-match-result input {
+            width: 27%;
+            padding: 4px;
+            border: 0.5px solid #d8d8d8;
+            border-radius: 4px;
+        }
+
+        .summary-first-row-item {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            font-size: small;
+            justify-content: space-between;
+        }
+
+        .match-played-at {
+            display: flex;
+            flex-direction: row;
+            width: 50%;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .total-odd-at-match {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .summary-league-name {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            font-size: small;
+            justify-content: space-between;
+        }
+
+        .lower-button {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin-top: 12px;
+            justify-content: space-between;
+        }
+
+        .bet-place-at {
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .bet-place-at input {
+            flex: 1;
+        }
+
+        .add-game-button {
+            background-color: #9ce800;
+            border-radius: 12px;
+            width: 20%;
+            cursor: pointer;
+            border: none;
+            margin-right: 4px;
+        }
+
+        .save-game-button {
+            background-color: #8dc63f;
+            border-radius: 12px;
+            width: 100%;
+            cursor: pointer;
+            border: none;
+            margin-right: 4px;
+            padding: 7px;
+        }
+
+        /* Toast Style */
+        .toast {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            font-size: 17px;
+        }
+
+        .toast.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @-webkit-keyframes fadein {
+            from { bottom: 0; opacity: 0; }
+            to { bottom: 30px; opacity: 1; }
+        }
+
+        @keyframes fadein {
+            from { bottom: 0; opacity: 0; }
+            to { bottom: 30px; opacity: 1; }
+        }
+
+        @-webkit-keyframes fadeout {
+            from { bottom: 30px; opacity: 1; }
+            to { bottom: 0; opacity: 0; }
+        }
+
+        @keyframes fadeout {
+            from { bottom: 30px; opacity: 1; }
+            to { bottom: 0; opacity: 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="betForm">
+        <div class="section-header">
+            <span> Taarifa za Beti</span>
+            <label for="bet_id">Bet ID:</label>
+            <input type="tel" id="bet_id" name="bet_id" />
+        </div>
+
+        <div class="section-header-summary">
+            <div class="summary-item">
+                <label for="totalOdds">Odds:</label>
+                <input type="number" id="totalOdds" name="totalOdds" step="0.01" placeholder="odds" />
+            </div>
+            <div class="summary-item">
+                <label for="stake">Stake (TSH):</label>
+                <input type="number" id="stake" name="stake" step="0.01" placeholder="write stake..." />
+            </div>
+
+            <div class="summary-item">
+                <label for="potential_winnings">Potential Winnings (TSH):</label>
+                <input type="number" id="potential_winnings" name="potential_winnings" step="0.01"
+                    placeholder="write winning...">
+            </div>
+            <div class="summary-item">
+                <label for="wht_tax">WHT Tax (TSH):</label>
+                <input type="number" id="wht_tax" name="wht_tax" step="0.01" placeholder="write WTH Tax...">
+            </div>
+            <div class="summary-item">
+                <label for="payout">Payout (TSH):</label>
+                <input type="number" id="payout" name="payout" step="0.01" placeholder="write Payout...">
+            </div>
+        </div>
+
+        <div id="matches-container">
+
+            <div class="match-section">
+                <span>Game 1</span>
+                <div class="summary-first-row-item">
+                    <div class="match-played-at">
+                        <input type="text" id="match_time_1" name="match_time_1" placeholder="7:00 pm">
+                        <input type="text" id="match_date_1" name="match_date_1" placeholder="Thu 10/07">
+                    </div>
+                    <div class="total-odd-at-match">
+                        <input type="number" id="odds_1" name="odds_1" step="0.01" placeholder="odds">
+                    </div>
+                </div>
+
+                <div class="summary-match-item">
+                    <div class="summary-match-names-container">
+                        <div class="summary-match-name">
+                            <label for="home_team_1">Home Team:</label>
+                            <input type="text" id="home_team_1" name="home_team_1" placeholder="write match name">
+                        </div>
+                        <span>-</span>
+                        <div class="summary-match-name">
+                            <label for="away_team_1">Away Team:</label>
+                            <input type="text" id="away_team_1" name="away_team_1" placeholder="write match name">
+                        </div>
+                    </div>
+                    <div class="summary-match-result">
+                        <input type="text" id="full_time_score_1" name="full_time_score_1" placeholder="eg. 2-4">
+                    </div>
+                </div>
+
+                <div class="summary-league-name">
+                    <input type="text" id="league_1" name="league_1" placeholder="write league name">
+                    <label for="league_1">League</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="lower-button">
+            <button type="button" id="addMatchBtn" class="add-game-button">Add game</button>
+            <div class="bet-place-at">
+                <label for="bet_time">Bet placed on </label>
+                <input type="text" id="bet_time" name="bet_time" placeholder="Thu 10/07 at 7:21 pm">
+            </div>
+        </div>
+
+        <hr>
+        <button type="submit" class="save-game-button">Save Match</button>
+    </form>
+
+    <!-- Toast -->
+    <div id="toast" class="toast">Bets Detail Saved Successfully</div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+        import { getFirestore, doc, setDoc,serverTimestamp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyBb71iS3gC_GCaNba7bIeVtFq4db8v142g",
+            authDomain: "incognitoapp-dc44e.firebaseapp.com",
+            projectId: "incognitoapp-dc44e",
+            storageBucket: "incognitoapp-dc44e.firebasestorage.app",
+            messagingSenderId: "673020420714",
+            appId: "1:673020420714:web:c13942d7451fabf78ba013",
+            measurementId: "G-WWHBT9J427"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        let matchCount = 1;
+
+        function showToast() {
+            const toast = document.getElementById("toast");
+            toast.className = "toast show";
+            setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+        }
+
+        function validateForm() {
+            let valid = true;
+
+            // Check main bet details
+            const mainFields = ['bet_id','totalOdds','stake','potential_winnings','wht_tax','payout','bet_time'];
+            mainFields.forEach(id => {
+                const el = document.getElementById(id);
+                if (el.value === '' || el.value === null) valid = false;
+            });
+
+            // Check matches
+            for (let i = 1; i <= matchCount; i++) {
+                const matchFields = [
+                    `match_time_${i}`, `match_date_${i}`,
+                    `odds_${i}`, `home_team_${i}`, `away_team_${i}`, 
+                    `full_time_score_${i}`, `league_${i}`
+                ];
+                matchFields.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el.value === '' || el.value === null) valid = false;
+                });
+            }
+
+            return valid;
+        }
+
+        document.getElementById('betForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            if (!validateForm()) {
+                alert("Tafadhali jaza fields zote kabla ya ku-save!");
+                return;
+            }
+
+            const bet_id = document.getElementById('bet_id').value;
+
+            const betData = {
+                bet_id: bet_id,
+                createdAt: serverTimestamp(),
+                bet_details: {
+                    totalOdds: parseFloat(document.getElementById('totalOdds').value),
+                    stake: parseFloat(document.getElementById('stake').value),
+                    payout: parseFloat(document.getElementById('payout').value),
+                    potential_winnings: parseFloat(document.getElementById('potential_winnings').value),
+                    wht_tax: parseFloat(document.getElementById('wht_tax').value),
+                    currency: "TSH",
+                    bet_time: document.getElementById('bet_time').value
+                },
+                matches: []
+            };
+
+            const matchSections = document.querySelectorAll('.match-section');
+            matchSections.forEach((section, index) => {
+                const i = index + 1;
+                const match = {
+                    match_id: "match_id_" + i,
+                    home_team: section.querySelector(`#home_team_${i}`).value,
+                    away_team: section.querySelector(`#away_team_${i}`).value,
+                    full_time_score: section.querySelector(`#full_time_score_${i}`).value,
+                    league: section.querySelector(`#league_${i}`).value,
+                    bet_details: {
+                        odds: parseFloat(section.querySelector(`#odds_${i}`).value),
+                        match_time: section.querySelector(`#match_time_${i}`).value,
+                        match_date: section.querySelector(`#match_date_${i}`).value
+                    }
+                };
+                betData.matches.push(match);
+            });
+
+            try {
+                // await setDoc(doc(db, "bets", bet_id), betData);
+                await setDoc(doc(db, "bets", "currentBet"), betData);
+                showToast();
+                // Clear form fields
+                document.getElementById('betForm').reset();
+                // Reset match sections except first
+                const matchesContainer = document.getElementById('matches-container');
+                matchesContainer.innerHTML = matchesContainer.children[0].outerHTML;
+                matchCount = 1;
+            } catch (error) {
+                console.error("Hitilafu katika kuhifadhi data:", error);
+                alert("Hitilafu katika kuhifadhi data: " + error.message);
+            }
+        });
+
+        document.getElementById('addMatchBtn').addEventListener('click', () => {
+            matchCount++;
+            const matchesContainer = document.getElementById('matches-container');
+            const newMatchSection = document.createElement('div');
+            newMatchSection.className = 'match-section';
+            newMatchSection.innerHTML = `
+                <span>Game ${matchCount}</span>
+                <div class="summary-first-row-item">
+                    <div class="match-played-at">
+                        <input type="text" id="match_time_${matchCount}" name="match_time_${matchCount}" placeholder="7:00 pm">
+                        <input type="text" id="match_date_${matchCount}" name="match_date_${matchCount}" placeholder="Thu 10/07">
+                    </div>
+                    <div class="total-odd-at-match">
+                        <input type="number" id="odds_${matchCount}" name="odds_${matchCount}" step="0.01" placeholder="odds">
+                    </div>
+                </div>
+                <div class="summary-match-item">
+                    <div class="summary-match-names-container">
+                        <div class="summary-match-name">
+                            <label for="home_team_${matchCount}">Home Team:</label>
+                            <input type="text" id="home_team_${matchCount}" name="home_team_${matchCount}" placeholder="write match name">
+                        </div>
+                        <span>-</span>
+                        <div class="summary-match-name">
+                            <label for="away_team_${matchCount}">Away Team:</label>
+                            <input type="text" id="away_team_${matchCount}" name="away_team_${matchCount}" placeholder="write match name">
+                        </div>
+                    </div>
+                    <div class="summary-match-result">
+                        <input type="text" id="full_time_score_${matchCount}" name="full_time_score_${matchCount}" placeholder="eg. 2-4">
+                    </div>
+                </div>
+                <div class="summary-league-name">
+                    <input type="text" id="league_${matchCount}" name="league_${matchCount}" placeholder="write league name">
+                    <label for="league_${matchCount}">League</label>
+                </div>
+            `;
+            matchesContainer.appendChild(newMatchSection);
+        });
+    </script>
+</body>
+
+</html>
