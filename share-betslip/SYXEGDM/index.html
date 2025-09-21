@@ -28,35 +28,43 @@
       <meta name="theme-color" content="#252a2d">
       <script src="/env.js?v=6"></script>
       <link rel="stylesheet" href="css/style.css">
-      <style>
-        .section-middle {
+
+
+
+<style>
+
+.section-middle {
   display: flex;
   flex-direction: column;
-  height: 100vh;        /* layout ichukue full screen */
-  overflow: hidden;     /* zuia body nzima iscrolle */
+  height: 100vh;
+  overflow: hidden;
+  /* padding-bottom: 60px; */
 }
 
 .scrollable-content {
-  flex: 1;              /* ichukue nafasi iliyobaki */
-  min-height: 0;        /* muhimu: iruhusu shrink */
-  overflow-y: auto;     /* hii ndiyo inascroll */
-  padding-bottom: 80px; /* nafasi ya kuzuia content kufunikwa na bottom nav */
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-bottom: 160px;
+  /* background-color: red; */
 }
+.scrollable-content::-webkit-scrollbar {
+    display: none;
+  }
 
-.bottom-navigation-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #fff;
-  padding: 10px;
-  text-align: center;
-  border-top: 1px solid #ccc;
-  z-index: 1000;
-  height: 60px;         /* urefu maalum wa bottom nav */
-}
 
-      </style>
+    /* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Firefox */
+  body {
+    scrollbar-width: none; /* hides scrollbar but allows scrolling */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
+
+</style>
 </head>
     <body>
         <div id="app" data-v-app="">
@@ -2077,7 +2085,7 @@
 
 
                 
-    <div class="scrollable-content main-container">
+    <div class="">
                     <div class="header">
                         <div data-v-a4ad7d5d="" class="header">
                             <div data-v-a4ad7d5d="" class="header-body">
@@ -2335,134 +2343,17 @@
         <div class="absolute-content flex-column content">
             <div></div>  
             <div><!----></div>
-            <div class="section-middle flex-column"  >
-                <div class="scrollable-content flex-column" >
-                    <div class="main-content-2">
-                        <div data-v-6206f3d0="" class="single-betslip router-view">
-                            <div data-v-6206f3d0="" class="header">
-                                <div data-v-6206f3d0="" class="back"><svg data-v-02f45589="" data-v-6206f3d0=""
-                                        class="svg-icon icon" style="vertical-align: middle;">
-                                        <use data-v-02f45589="" xlink:href="#icon-close"></use>
-                                    </svg></div>
-                                <div data-v-6206f3d0="" class="betslip-title" id="bet_id">
-                                    <!-- bet id  -->
-                                    
-                                </div> 
-                            </div>
-                            <div data-v-6206f3d0="" class="summary">
-                                <div data-v-05c7c0fa="" data-v-6206f3d0="" class="tier-banner"><img data-v-1f7f90db=""
-                                        data-v-05c7c0fa="" class="image-icon trophy-img"
-                                        src="images/main_trophy_bronze_b8a77b5e1a.webp" > <img
-                                        data-v-1f7f90db="" data-v-05c7c0fa="" class="image-icon trophy-bg"
-                                        src="images/Property_1_Bronze_confetti_b5028c1425.webp" >
-                                    <div data-v-05c7c0fa="" class="currency congrats-text" id="wining-big-container">
-                                        <!-- <span
-                                            data-v-05c7c0fa="">Congratulations on <br> <span
-                                                class="win-big-text">winning big </span></span> <span
-                                            class="symbol">TSh</span> <span class="amount">2.45</span> wining-big-container -->
-                                    </div>
-                                </div> 
-                                <div data-v-6206f3d0="" id="bet-win-container" class="betslip-summary-container win-tier"
-                                    style=" padding: 9px 9px 2px 9px; border-image: linear-gradient(to right, rgb(176, 96, 55), rgb(230, 149, 103), rgb(217, 111, 53), rgb(141, 69, 29), rgb(230, 149, 103)) 1 / 1 / 0 stretch;">
 
-                                    <!-- <div data-v-6206f3d0="" class="summary-line">
-                                        <div data-v-6206f3d0="" class="label">Odds:</div>
-                                        <div data-v-6206f3d0="" class="value">2.64</div>
-                                    </div> 
-                                    <div data-v-6206f3d0="" class="summary-line">
-                                        <div data-v-6206f3d0="" class="label">Stake:</div>
-                                        <div data-v-6206f3d0="" class="currency value" data-test-id="stakeAmount"> <span
-                                                class="symbol contrast">TSh</span> <span class="amount">1.00</span>
-                                            </div>
-                                    </div> 
-                                    <div data-v-6206f3d0="" class="summary-line">
-                                        <div data-v-6206f3d0="" class="label bold">Potential Winnings:</div>
-                                        <div data-v-6206f3d0="" class="currency value" data-test-id="possibleWinAmount">
-                                            <span class="symbol contrast">TSh</span> <span class="amount">1.65</span>
-                                            </div>
-                                    </div> 
-                                    <div data-v-6206f3d0="" class="summary-line">
-                                        <div data-v-6206f3d0="" class="label">WHT 12%:</div>
-                                        <div data-v-6206f3d0="" class="currency value" data-test-id="possibleWinAmount">
-                                            -
-                                            <span class="symbol contrast">TSh</span> <span class="amount">0.20</span>
-                                            
-                                        </div>
-                                    </div>
-                                    <div data-v-6206f3d0="" class="summary-line" data-test-id="summaryLine">
-                                        <div data-v-6206f3d0="" class="label bold winning-result">Payout:</div>
-                                        <div data-v-6206f3d0="" class="currency value winning-result"
-                                            data-test-class="betResult" data-test-id="betResultWon">WON <span
-                                                class="symbol">TSh</span> <span class="amount">2.45</span></div>
-                                    </div> -->
-
-
-
-
-                                </div> 
-                            </div> 
-                           
-                            <div data-v-21ea927d="" data-v-6206f3d0="" style="background-color: #fff; padding: 0px;" class="event" data-test-id="stakeInfo"  id="match_container">
-                                <!-- <div data-v-21ea927d="" class="event-line event-header">
-                                    <div data-v-21ea927d="" class="event-label">
-                                        <div data-v-21ea927d="" class="label">
-                                            <div data-v-21ea927d="">7:00 pm <span data-v-21ea927d="" class="date">Thu
-                                                    10/07</span></div>
-                                        </div> 
-                                    </div>
-                                    <div data-v-21ea927d="" class="value odd win"><span data-v-21ea927d=""
-                                            class="">1.43</span> <span data-v-3cc7db1a="" data-v-21ea927d=""
-                                            class="badge type-win mode-circle badge-result"></span></div>
-                                </div>
-                                <div data-v-21ea927d="" class="event-line">
-                                    <div data-v-21ea927d="" class="label">
-                                        <div data-v-21ea927d="" class="match" data-test-id="matchName"><span
-                                                data-v-d3b7a662="" data-v-21ea927d="">CA Juventud Loma Pyta - Pastoreo
-                                                FC</span></div>
-                                        <div data-v-21ea927d="" class="league">Copa Paraguay</div>
-                                        <div data-v-21ea927d="" class="bold"><span data-v-21ea927d="">Correct Score | Full Time
-                                                (1-2)</span></div>
-                                    </div>
-                                    <div data-v-21ea927d="" class="value">
-                                        <div data-v-21ea927d=""><span data-v-21ea927d="" class="result">1-2</span></div>
-                                        
-                                    </div>
-                                </div> -->
-                            </div> 
-                            <div data-v-6206f3d0="" class="legend">
-                                <div data-v-6206f3d0="" class="lightgray placed-date">
-                                    <div data-v-6206f3d0="" id="bet_place_at">
-                                        <!-- Bet placed on <span data-v-6206f3d0="" class="nowrap">Thu
-                                            10/07 at 7:21 pm</span> -->
-                                    </div>
-                                    <div data-v-6206f3d0="" class="summary-legend"><span data-v-3cc7db1a=""
-                                            data-v-6206f3d0="" class="badge type-pending mode-circle"><!---->
-                                            <!----></span> <span data-v-6206f3d0="">Pending</span> <span
-                                            data-v-3cc7db1a="" data-v-6206f3d0=""
-                                            class="badge type-win mode-circle"><!----> <!----></span> <span
-                                            data-v-6206f3d0="">Won</span> <span data-v-3cc7db1a="" data-v-6206f3d0=""
-                                            class="badge type-lose mode-circle"><!----> <!----></span> <span
-                                            data-v-6206f3d0="">Lost</span> <span data-v-3cc7db1a="" data-v-6206f3d0=""
-                                            class="badge type-cancelled mode-circle"><svg data-v-02f45589=""
-                                                data-v-3cc7db1a="" class="svg-icon icon icon-size-medium"
-                                                style="vertical-align: middle;"><!---->
-                                                <use data-v-02f45589="" xlink:href="#icon-close"></use>
-                                            </svg> <!----></span> <span data-v-6206f3d0="">Void</span></div>
-                                </div>
-                            </div>
-                            <div data-v-fb673205="" data-v-6206f3d0="" class="mybets-regulation">
-                                <p data-v-fb673205="" class="mybets-regulation-msg"><span data-v-fb673205="">All bets
-                                        are accepted and settled in accordance with our <b><a href="/terms"
-                                                class="underline">Terms and Conditions</a></b> and <b><a href="/rules"
-                                                class="underline">Rules</a></b>.</span></p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="section-middle flex-column"  style="display: fex; flex-direction: row;">
+                <div class="scrollable-content flex-column" style="display: flex; flex-direction: column-reverse; overflow-y: auto; " >
+                    
+                    
+                   
 
 
 
                     
-                    <div data-v-a906914b="" class="main-footer"><!---->
+                    <div data-v-a906914b="" class="main-footer">
                         <div data-v-a906914b="" class="cta-container"><a data-v-a906914b="" href="https://www.betpawa.co.tz/join-now"
                                 class="button button-accent upperCase" id="join-now-bottom">Join Now</a></div>
                         <div data-v-a906914b="" class="footer-menu action-menu">
@@ -2615,6 +2506,69 @@
                         </div>
                     </div>
 
+                    <div class="main-content-2">
+                        <div data-v-6206f3d0="" class="single-betslip router-view">
+                            <div data-v-6206f3d0="" class="header">
+                                <div data-v-6206f3d0="" class="back"><svg data-v-02f45589="" data-v-6206f3d0=""
+                                        class="svg-icon icon" style="vertical-align: middle;">
+                                        <use data-v-02f45589="" xlink:href="#icon-close"></use>
+                                    </svg></div>
+                                <div data-v-6206f3d0="" class="betslip-title" id="bet_id">
+                                    <!-- bet id  -->
+                                    
+                                </div> 
+                            </div>
+                            <div data-v-6206f3d0="" class="summary">
+                                <div data-v-05c7c0fa="" data-v-6206f3d0="" class="tier-banner"><img data-v-1f7f90db=""
+                                        data-v-05c7c0fa="" class="image-icon trophy-img"
+                                        src="images/main_trophy_bronze_b8a77b5e1a.webp" > <img
+                                        data-v-1f7f90db="" data-v-05c7c0fa="" class="image-icon trophy-bg"
+                                        src="images/Property_1_Bronze_confetti_b5028c1425.webp" >
+                                    <div data-v-05c7c0fa="" class="currency congrats-text" id="wining-big-container">
+                                      <!-- winning bug container -->
+                                    </div>
+                                </div> 
+                                <div data-v-6206f3d0="" id="bet-win-container" class="betslip-summary-container win-tier"
+                                    style=" padding: 9px 9px 2px 9px; border-image: linear-gradient(to right, rgb(176, 96, 55), rgb(230, 149, 103), rgb(217, 111, 53), rgb(141, 69, 29), rgb(230, 149, 103)) 1 / 1 / 0 stretch;">
+
+
+
+                                </div> 
+                            </div> 
+                           
+                            <div data-v-21ea927d="" data-v-6206f3d0="" style="background-color: #fff; padding: 0px;" class="event" data-test-id="stakeInfo"  id="match_container">
+                                <!-- match container -->
+                            </div> 
+                            <div data-v-6206f3d0="" class="legend">
+                                <div data-v-6206f3d0="" class="lightgray placed-date">
+                                    <div data-v-6206f3d0="" id="bet_place_at">
+                                        <!-- Bet placed on <span data-v-6206f3d0="" class="nowrap">Thu
+                                            10/07 at 7:21 pm</span> -->
+                                    </div>
+                                    <div data-v-6206f3d0="" class="summary-legend"><span data-v-3cc7db1a=""
+                                            data-v-6206f3d0="" class="badge type-pending mode-circle"><!---->
+                                            <!----></span> <span data-v-6206f3d0="">Pending</span> <span
+                                            data-v-3cc7db1a="" data-v-6206f3d0=""
+                                            class="badge type-win mode-circle"><!----> <!----></span> <span
+                                            data-v-6206f3d0="">Won</span> <span data-v-3cc7db1a="" data-v-6206f3d0=""
+                                            class="badge type-lose mode-circle"><!----> <!----></span> <span
+                                            data-v-6206f3d0="">Lost</span> <span data-v-3cc7db1a="" data-v-6206f3d0=""
+                                            class="badge type-cancelled mode-circle"><svg data-v-02f45589=""
+                                                data-v-3cc7db1a="" class="svg-icon icon icon-size-medium"
+                                                style="vertical-align: middle;"><!---->
+                                                <use data-v-02f45589="" xlink:href="#icon-close"></use>
+                                            </svg> <!----></span> <span data-v-6206f3d0="">Void</span></div>
+                                </div>
+                            </div>
+                            <div data-v-fb673205="" data-v-6206f3d0="" class="mybets-regulation">
+                                <p data-v-fb673205="" class="mybets-regulation-msg"><span data-v-fb673205="">All bets
+                                        are accepted and settled in accordance with our <b><a href="/terms"
+                                                class="underline">Terms and Conditions</a></b> and <b><a href="/rules"
+                                                class="underline">Rules</a></b>.</span></p>
+                            </div>
+                        </div>
+                    </div>
+
                 
                     <div data-v-ecb5962a="" class="back-to-top back-to-top-hidden" data-test-id="backToTopButton"><span
                             data-v-ecb5962a="" class="back-to-top-item"><svg data-v-02f45589="" data-v-ecb5962a=""
@@ -2625,102 +2579,167 @@
                             top</span>
                     </div>
                 </div>
-
-               
-
-                <div data-v-09c73580="" class="bottom-navigation-wrapper">
-                        <div data-v-09c73580="" class="bottom-navigation">
-                            <div data-v-09c73580="" class="progress-bar">
-                                <div data-v-09c73580="" class="progress-bar-text"><span data-v-09c73580=""
-                                        class="progress-text truncate" data-test-id="bottomProgressInfo"><!----> <span
-                                            data-v-09c73580=""><span data-v-09c73580="" class="progress-bar-text-small">Add more legs to your betslip to
-                                                earn up to a <span class="bold">1000% Win Bonus.</span></span></span>
-                                        <!----></span></div>
-                                <div data-v-09c73580="" class="progress-bar-fill" style="width: 0%;"></div>
-                            </div>
-                            <div data-v-09c73580="" class="navigation-menu">
-                                <div data-v-09c73580="" data-test-id="bottomMenu_menu" class="navigation-item">
-                                    <div data-v-ffce89a4="" data-v-09c73580="" class="menu-item"><a data-v-ffce89a4=""
-                                            class="action-link"><svg data-v-02f45589="" data-v-ffce89a4=""
-                                                class="svg-icon menu-icon" style="vertical-align: middle;"><!---->
-                                                <use data-v-02f45589="" xlink:href="#icon-hamburger"></use>
-                                            </svg>
-                                            <div data-v-ffce89a4="" class="menu-title">Menu</div> <!---->
-                                        </a></div>
-                                </div>
-                                <div data-v-09c73580="" data-test-id="bottomMenu_sports" class="navigation-item">
-                                    <div data-v-ffce89a4="" data-v-09c73580="" class="menu-item"><a data-v-ffce89a4=""
-                                            href="/events" class="action-link"><svg data-v-02f45589="" data-v-ffce89a4=""
-                                                class="svg-icon menu-icon" style="vertical-align: middle;"><!---->
-                                                <use data-v-02f45589="" xlink:href="#icon-football"></use>
-                                            </svg> <!---->
-                                            <div data-v-ffce89a4="" class="menu-title">Sports</div> <!---->
-                                        </a></div>
-                                </div>
-                                <div data-v-09c73580="" data-test-id="bottomMenu_betslip"
-                                    class="navigation-item transparent">
-                                    <div data-v-ffce89a4="" data-v-09c73580="" class="circle-menu">
-                                        <div data-v-ffce89a4="" class="ellipse-left"></div>
-                                        <div data-v-ffce89a4="" class="ellipse-right"></div>
-                                        <div data-v-ffce89a4="" class="betslip-menu">
-                                            <div data-v-ffce89a4="" class="betslip-menu-wrapper"><svg data-v-02f45589=""
-                                                    data-v-ffce89a4="" class="svg-icon cut-plus-icon"
-                                                    style="vertical-align: middle;"><!---->
-                                                    <use data-v-02f45589="" xlink:href="#cut-plus-small"></use>
-                                                </svg> <a data-v-ffce89a4="" class=""><svg data-v-02f45589=""
-                                                        data-v-ffce89a4="" class="svg-icon menu-icon"
-                                                        style="vertical-align: middle;"><!---->
-                                                        <use data-v-02f45589="" xlink:href="#icon-betslip"></use>
-                                                    </svg> <!---->
-                                                    <div data-v-ffce89a4="" class="menu-title">Betslip</div>
-                                                </a></div>
+                <div  class="section-sidebar" style=" max-width: 30vw; position: -webkit-sticky; top: 100px;  z-index: 1000;">
+                    <div class="section grow-4">
+                        <div class="absolute-content content"><!---->
+                            <div data-v-6a1f30cc="" class="side-bar content side-bar-right open transition">
+                                <div data-v-6554af12="" class="bet-side-bar-wrapper">
+                                    <div data-v-f019253f="" data-v-6554af12="">
+                                        <div data-v-f019253f="" class="betslip-header">
+                                            <div data-v-f019253f="" class="betslip-header-content"><span data-v-f019253f=""
+                                                    class="betslip-header-info">Not logged in - <a href="/join-now" class="underline">Join
+                                                        Now</a> or <a href="/login?returnPrevPath=1&amp;reopenBetslip=1"
+                                                        class="underline">Log In</a></span></div>
                                         </div>
                                     </div>
-                                </div>
-                                <div data-v-09c73580="" data-test-id="bottomMenu_join" class="navigation-item">
-                                    <div data-v-ffce89a4="" data-v-09c73580="" class="menu-item"><a data-v-ffce89a4=""
-                                            href="/join-now" class="action-link"><svg data-v-02f45589="" data-v-ffce89a4=""
-                                                class="svg-icon menu-icon" style="vertical-align: middle;"><!---->
-                                                <use data-v-02f45589="" xlink:href="#icon-join-now"></use>
+                                    <div data-v-e2af0d22="" data-v-6554af12="" class="betslip-main">
+                                        <div data-v-30968df6="" data-v-e2af0d22="" class="tabs square with-top-border">
+                                            <ul data-v-30968df6="" class="tabs-menu align-center">
+                                                <li data-v-30968df6="" class="active first tabs-selector" data-test-id="tabs-REAL">
+                                                    <div data-v-30968df6="" class="tab-item">
+                                                        <div data-v-30968df6="" class="tab-item-border">
+                                                            <div data-v-30968df6="" class="tab-icon"><svg data-v-02f45589=""
+                                                                    data-v-30968df6="" class="svg-icon icon icon-size-small"
+                                                                    style="vertical-align: middle;"><!---->
+                                                                    <use data-v-02f45589="" xlink:href="#icon-ball-with-shadow"></use>
+                                                                </svg></div> <span data-v-30968df6="" class="tab-text">Sport</span> <!---->
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li data-v-30968df6="" class="last tabs-selector" data-test-id="tabs-VIRTUAL">
+                                                    <div data-v-30968df6="" class="tab-item">
+                                                        <div data-v-30968df6="" class="tab-item-border">
+                                                            <div data-v-30968df6="" class="tab-icon"><svg data-v-02f45589=""
+                                                                    data-v-30968df6="" class="svg-icon icon icon-size-small"
+                                                                    style="vertical-align: middle;"><!---->
+                                                                    <use data-v-02f45589="" xlink:href="#icon-virtual-sport"></use>
+                                                                </svg></div> <span data-v-30968df6="" class="tab-text">Virtuals</span>
+                                                            <!---->
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div> <!---->
+                                        <div data-v-35ce0698="" data-v-e2af0d22="" class="booking-code">
+                                            <div data-v-35ce0698="" class="booking-code-form">
+                                                <div data-v-35ce0698="" class="label"><span data-v-35ce0698="">Booking code</span></div>
+                                                <div data-v-6773be48="" data-v-35ce0698="" class="input-field booking-code-field"><!---->
+                                                    <div data-v-6773be48="" class="input-field-wrapper input-icon-undefined"> <!---->
+                                                        <!----> <input data-v-6773be48="" min="0" placeholder="Enter booking code"
+                                                            id="booking-code-booking-code" class="" name="booking-code" type="text"
+                                                            step="1"></div> <!----> <!---->
+                                                </div> <!----> <button data-v-35ce0698="" class="button button-primary button-full">Load
+                                                    Betslip</button>
+                                            </div>
+                                            <div data-v-35ce0698="" class="notify success" style="display: none;">Congrats! Betslip loaded
+                                                successfully. Here are your picks.</div>
+                                        </div> <!---->
+                                        <div data-v-e2af0d22="" class="empty-betslip">
+                                            <div data-v-e2af0d22="" class="empty-betslip-title">Betslip is empty</div> <svg
+                                                data-v-02f45589="" data-v-e2af0d22="" class="svg-icon"
+                                                style="vertical-align: middle;"><!---->
+                                                <use data-v-02f45589="" xlink:href="#empty-betslip"></use>
+                                            </svg> <!----> <a data-v-e2af0d22="" href="/learn-how-to-bet"
+                                                class="button button-accent button-full">Learn how to bet</a> <a data-v-e2af0d22=""
+                                                href="/upcoming" class="button button-outline button-full"
+                                                data-test-id="discoverMoreSports">Discover more sports</a>
+                                        </div>
+                                    </div> <!---->
+                                </div> <!---->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <div data-v-09c73580="" class="bottom-navigation-wrapper">
+                <div data-v-09c73580="" class="bottom-navigation">
+                    <div data-v-09c73580="" class="progress-bar">
+                        <div data-v-09c73580="" class="progress-bar-text"><span data-v-09c73580=""
+                                class="progress-text truncate" data-test-id="bottomProgressInfo"><!----> <span
+                                    data-v-09c73580=""><span data-v-09c73580="" class="progress-bar-text-small">Add more legs to your betslip to
+                                        earn up to a <span class="bold">1000% Win Bonus.</span></span></span>
+                                <!----></span></div>
+                        <div data-v-09c73580="" class="progress-bar-fill" style="width: 0%;"></div>
+                    </div>
+                    <div data-v-09c73580="" class="navigation-menu">
+                        <div data-v-09c73580="" data-test-id="bottomMenu_menu" class="navigation-item">
+                            <div data-v-ffce89a4="" data-v-09c73580="" class="menu-item"><a data-v-ffce89a4=""
+                                    class="action-link"><svg data-v-02f45589="" data-v-ffce89a4=""
+                                        class="svg-icon menu-icon" style="vertical-align: middle;"><!---->
+                                        <use data-v-02f45589="" xlink:href="#icon-hamburger"></use>
+                                    </svg>
+                                    <div data-v-ffce89a4="" class="menu-title">Menu</div> <!---->
+                                </a></div>
+                        </div>
+                        <div data-v-09c73580="" data-test-id="bottomMenu_sports" class="navigation-item">
+                            <div data-v-ffce89a4="" data-v-09c73580="" class="menu-item"><a data-v-ffce89a4=""
+                                    href="/events" class="action-link"><svg data-v-02f45589="" data-v-ffce89a4=""
+                                        class="svg-icon menu-icon" style="vertical-align: middle;"><!---->
+                                        <use data-v-02f45589="" xlink:href="#icon-football"></use>
+                                    </svg> <!---->
+                                    <div data-v-ffce89a4="" class="menu-title">Sports</div> <!---->
+                                </a></div>
+                        </div>
+                        <div data-v-09c73580="" data-test-id="bottomMenu_betslip"
+                            class="navigation-item transparent">
+                            <div data-v-ffce89a4="" data-v-09c73580="" class="circle-menu">
+                                <div data-v-ffce89a4="" class="ellipse-left"></div>
+                                <div data-v-ffce89a4="" class="ellipse-right"></div>
+                                <div data-v-ffce89a4="" class="betslip-menu">
+                                    <div data-v-ffce89a4="" class="betslip-menu-wrapper"><svg data-v-02f45589=""
+                                            data-v-ffce89a4="" class="svg-icon cut-plus-icon"
+                                            style="vertical-align: middle;"><!---->
+                                            <use data-v-02f45589="" xlink:href="#cut-plus-small"></use>
+                                        </svg> <a data-v-ffce89a4="" class=""><svg data-v-02f45589=""
+                                                data-v-ffce89a4="" class="svg-icon menu-icon"
+                                                style="vertical-align: middle;"><!---->
+                                                <use data-v-02f45589="" xlink:href="#icon-betslip"></use>
                                             </svg> <!---->
-                                            <div data-v-ffce89a4="" class="menu-title">Join</div> <!---->
-                                        </a></div>
-                                </div>
-                                <div data-v-09c73580="" data-test-id="bottomMenu_account" class="navigation-item">
-                                    <div data-v-ffce89a4="" data-v-09c73580="" class="menu-item"><a data-v-ffce89a4=""
-                                            class="action-link"><svg data-v-02f45589="" data-v-ffce89a4=""
-                                                class="svg-icon menu-icon" style="vertical-align: middle;"><!---->
-                                                <use data-v-02f45589="" xlink:href="#icon-top-menu"></use>
-                                            </svg>
-                                            <div data-v-ffce89a4="" class="menu-title">Account</div> <!---->
+                                            <div data-v-ffce89a4="" class="menu-title">Betslip</div>
                                         </a></div>
                                 </div>
                             </div>
                         </div>
+                        <div data-v-09c73580="" data-test-id="bottomMenu_join" class="navigation-item">
+                            <div data-v-ffce89a4="" data-v-09c73580="" class="menu-item"><a data-v-ffce89a4=""
+                                    href="/join-now" class="action-link"><svg data-v-02f45589="" data-v-ffce89a4=""
+                                        class="svg-icon menu-icon" style="vertical-align: middle;"><!---->
+                                        <use data-v-02f45589="" xlink:href="#icon-join-now"></use>
+                                    </svg> <!---->
+                                    <div data-v-ffce89a4="" class="menu-title">Join</div> <!---->
+                                </a></div>
+                        </div>
+                        <div data-v-09c73580="" data-test-id="bottomMenu_account" class="navigation-item">
+                            <div data-v-ffce89a4="" data-v-09c73580="" class="menu-item"><a data-v-ffce89a4=""
+                                    class="action-link"><svg data-v-02f45589="" data-v-ffce89a4=""
+                                        class="svg-icon menu-icon" style="vertical-align: middle;"><!---->
+                                        <use data-v-02f45589="" xlink:href="#icon-top-menu"></use>
+                                    </svg>
+                                    <div data-v-ffce89a4="" class="menu-title">Account</div> <!---->
+                                </a></div>
+                        </div>
+                    </div>
                 </div>
-             
-            </div>
+                </div>
 
 
         </div>
     </div>
     <!-- <div class="section grow-0">
-        <div class="absolute-content content"></div>
+        <div class="absolute-content content" >lll</div>
     </div> -->
 
 
 </div>
 
-                  
-
-
-                   <!-- lllll -->
-                </div> 
-
-                
-
         </div>
     </div>
+</div>
 
         <script
             nomodule="">!function () { var e = document, t = e.createElement("script"); if (!("noModule" in t) && "onbeforeload" in t) { var n = !1; e.addEventListener("beforeload", (function (e) { if (e.target === t) n = !0; else if (!e.target.hasAttribute("nomodule") || !n) return; e.preventDefault() }), !0), t.type = "module", t.src = ".", e.head.appendChild(t), t.remove() } }();</script>
@@ -2744,14 +2763,14 @@
     import { getFirestore, collection, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
     const firebaseConfig = {
-        apiKey: "AIzaSyBb71iS3gC_GCaNba7bIeVtFq4db8v142g",
-        authDomain: "incognitoapp-dc44e.firebaseapp.com",
-        projectId: "incognitoapp-dc44e",
-        storageBucket: "incognitoapp-dc44e.firebasestorage.app",
-        messagingSenderId: "673020420714",
-        appId: "1:673020420714:web:c13942d7451fabf78ba013",
-        measurementId: "G-WWHBT9J427"
-    };
+            apiKey: "AIzaSyDKH-qByuFhuTK8yvakS_oldTOL-4gTzaU",
+                    authDomain: "myfirstapp-4e6cb.firebaseapp.com",
+                    projectId: "myfirstapp-4e6cb",
+                    storageBucket: "myfirstapp-4e6cb.firebasestorage.app",
+                    messagingSenderId: "370228991446",
+                    appId: "1:370228991446:web:8f223cd17b05f80cb64077",
+                    measurementId: "G-VRVVMCW1KF"
+        };
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
@@ -2876,4 +2895,5 @@ function format2dp(value) {
 </script>
     </body>
 </html>
+
 
