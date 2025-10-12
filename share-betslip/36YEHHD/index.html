@@ -2819,7 +2819,7 @@ body::-webkit-scrollbar {
             // Display main bet details
             const betidContainer = document.getElementById("bet_id");
             betidContainer.innerHTML = `
-            <div data-v-6206f3d0="" class="id" data-test-id="betSlipID">BET ID #${bet.bet_id}*** <svg
+            <div data-v-6206f3d0="" class="id" data-test-id="betSlipID">BET ID #${bet.bet_id.slice(0,7)}*** <svg
                                             data-v-02f45589="" data-v-6206f3d0="" class="svg-icon icon-size-medium"
                                             style="vertical-align: middle;"><!---->
                                             <use data-v-02f45589="" xlink:href="#icon-user-verified"></use>
