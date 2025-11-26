@@ -2798,14 +2798,43 @@ body::-webkit-scrollbar {
             messagingSenderId: "1066244611613",
             appId: "1:1066244611613:web:fb7596d4e61e39c8bff0f4",
             measurementId: "G-6QL386ZXNW"
-        };
+    };
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
+// ADD THIS AT THE TOP LEVEL (outside loadLatestBet function)
+document.addEventListener('DOMContentLoaded', function() {
+    // Event delegation for tax details toggle
+    document.addEventListener('click', function(e) {
+        const toggleButton = e.target.closest('[data-test-id="toggle-open-button"]');
+        if (toggleButton) {
+            toggleTaxDetails(toggleButton);
+        }
+    });
+});
+
+// MODIFY YOUR toggleTaxDetails FUNCTION
+function toggleTaxDetails(buttonElement) {
+    // Find the parent expansion panel
+    const panel = buttonElement.closest('.expansion-panel');
+    
+    if (panel.classList.contains('open')) {
+        // Close the panel
+        panel.classList.remove('open');
+        panel.classList.add('closed');
+    } else {
+        // Open the panel
+        panel.classList.remove('closed');
+        panel.classList.add('open');
+    }
+}
+
+
+
+
     async function loadLatestBet() {
         const betsRef = collection(db, "bets");
-        // const q = query(betsRef, orderBy("bet_details.bet_time", "desc"), limit(1));
         const q = query(betsRef, orderBy("createdAt", "desc"), limit(1));
         const querySnapshot = await getDocs(q);
 
@@ -2816,6 +2845,7 @@ body::-webkit-scrollbar {
 
         querySnapshot.forEach(docSnap => {
             const bet = docSnap.data();
+            
             // Display main bet details
             const betidContainer = document.getElementById("bet_id");
             betidContainer.innerHTML = `
@@ -2829,44 +2859,92 @@ body::-webkit-scrollbar {
             const betPlaceAt = document.getElementById("bet_place_at");
             betPlaceAt.innerHTML = ` 
          Bet placed on <span data-v-6206f3d0="" class="nowrap">${bet.bet_details.bet_time}</span>
-
             `;
-            const winingBigContainer =document.getElementById("wining-big-container");
-            winingBigContainer.innerHTML=`
-            
+
+            const winingBigContainer = document.getElementById("wining-big-container");
+            winingBigContainer.innerHTML = `
                                     <span
                                             data-v-05c7c0fa="">Congratulations on <br> <span
                                                 class="win-big-text">winning big </span></span> <span
                                             class="symbol">TSh</span> <span class="amount">${bet.bet_details.payout.toLocaleString("sw-TZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span> 
+            `;// Add this event delegation at the top level
 
-            `;
+
+
+
+
             const totalOddsDiv = document.getElementById("bet-win-container");
+
+            
             totalOddsDiv.innerHTML = `
-               <div data-v-6206f3d0="" class="summary-line">
+                                     <div data-v-6206f3d0="" class="summary-line">
                                         <div data-v-6206f3d0="" class="label">Odds:</div>
                                         <div data-v-6206f3d0="" class="value">${bet.bet_details.totalOdds.toLocaleString("sw-TZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                                     </div> 
-                                    <div data-v-6206f3d0="" class="summary-line">
-                                        <div data-v-6206f3d0="" class="label">Stake:</div>
-                                        <div data-v-6206f3d0="" class="currency value" data-test-id="stakeAmount"> <span
+                              
+
+                                    <div data-v-6206f3d0="" class="summary-line ">
+                                        <div data-v-6206f3d0="" class="label-stake">Stake:</div>
+                                        <div data-v-6206f3d0="" class="currency value-stake" data-test-id="stakeAmount"> <span
                                                
                                             class="symbol contrast">TSh</span> <span class="amount">${bet.bet_details.stake.toLocaleString("sw-TZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                                            </div>
+                                    </div>
                                     </div> 
-                                    <div data-v-6206f3d0="" class="summary-line">
-                                        <div data-v-6206f3d0="" class="label bold">Potential Winnings:</div>
-                                        <div data-v-6206f3d0="" class="currency value" data-test-id="possibleWinAmount">
+                                    <div data-v-6206f3d0="" class="summary-line ">
+                                        <div data-v-6206f3d0="" class=" bold label-stake">Potential Winnings:</div>
+                                        <div data-v-6206f3d0="" class="currency value-stake" data-test-id="possibleWinAmount">
                                             <span class="symbol contrast">TSh</span> <span class="amount">${bet.bet_details.potential_winnings.toLocaleString("sw-TZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                                             </div>
                                     </div> 
-                                    <div data-v-6206f3d0="" class="summary-line">
-                                        <div data-v-6206f3d0="" class="label">WHT 12%:</div>
-                                        <div data-v-6206f3d0="" class="currency value" data-test-id="possibleWinAmount">
-                                            -
-                                            <span class="symbol contrast">TSh</span> <span class="amount">${bet.bet_details.wht_tax.toLocaleString("sw-TZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                                            
+
+    
+                                    <div data-v-15b0accc=""  class="tax-details">
+                                        <div data-v-aabe1219="" data-v-15b0accc="" class="expansion-panel minimal small tax-details-expansion light closed">
+                                            <div data-v-aabe1219="" data-test-id="toggle-open-button" class="title table pointer" onclick="toggleTaxDetails()">
+                                                
+                                                <div data-v-aabe1219="" class="row-cell align-middle expand-icon expand-icon-left">
+                                                    <svg data-v-02f45589="" data-v-aabe1219="" class="svg-icon icon-size-very-small" style="vertical-align: middle;">
+                                                        <use data-v-02f45589="" xlink:href="#icon-arrow-up"></use>
+                                                    </svg>
+                                                </div>
+
+                                                <div data-v-aabe1219="" class="row-cell align-middle title-text">
+                                                    <!-- Closed State - Show Withholding Tax -->
+                                                    <div class="withholding-header" >
+                                                        <div class="label">Withholding Tax 12%</div>
+                                                        <div class="currency value">
+                                                            <span class="symbol contrast">TSh</span> 
+                                                            <span class="amount">${bet.bet_details.wht_tax.toLocaleString("sw-TZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <!-- Open State - Show Tax Details Title -->
+                                                    <div class="tax-details-header">
+                                                        <h3 data-v-aabe1219="">Tax Details:</h3>
+                                                    </div>
+                                                </div> 
+                                            </div>
+                                            <div data-v-aabe1219="" class="expansion-panel-content">
+                                                <div data-v-15b0accc="" class="summary-line">
+                                                    <div data-v-15b0accc="" class="label">Gross Winnings:</div>
+                                                    <div data-v-15b0accc="" class="currency value" data-test-id="grossWinnings"> 
+                                                        <span class="symbol contrast">TSh</span> 
+                                                        <span class="amount">${bet.bet_details.potential_winnings.toLocaleString("sw-TZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                                                    </div>
+                                                </div>
+                                                <div data-v-15b0accc="" class="divider"></div>
+                                                <div data-v-15b0accc="" class="summary-line">
+                                                    <div data-v-15b0accc="" class="label">Withholding Tax 12%:</div>
+                                                    <div data-v-15b0accc="" class="currency value" data-test-id="possibleWinAmount"> 
+                                                        <span class="symbol contrast">TSh</span> 
+                                                        <span class="amount">${bet.bet_details.wht_tax.toLocaleString("sw-TZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+
+                                  
                                     <div data-v-6206f3d0="" class="summary-line" data-test-id="summaryLine">
                                         <div data-v-6206f3d0="" class="label bold winning-result">Payout:</div>
                                         <div data-v-6206f3d0="" class="currency value winning-result"
@@ -2874,14 +2952,13 @@ body::-webkit-scrollbar {
                                                 class="symbol">TSh</span> <span class="amount">${bet.bet_details.payout.toLocaleString("sw-TZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>
                                     </div>
             `;
-            
 
-function format2dp(value) {
-  const n = Number(value);
-  if (Number.isNaN(n)) return ""; 
-  return n.toFixed(2); 
-}
-// ${match.bet_details.odds.maximumFractionDigits(2).minimumFractionDigits(2)}
+            function format2dp(value) {
+                const n = Number(value);
+                if (Number.isNaN(n)) return ""; 
+                return n.toFixed(2); 
+            }
+
             // Display matches
             const matchesContainer = document.getElementById("match_container");
             matchesContainer.innerHTML = "";
@@ -2890,36 +2967,48 @@ function format2dp(value) {
                 matchDiv.className = "event";
                 matchDiv.innerHTML = `
                     <div data-v-21ea927d="" class="event-line event-header">
-                                    <div data-v-21ea927d="" class="event-label">
-                                        <div data-v-21ea927d="" class="label">
-                                            <div data-v-21ea927d="">${match.bet_details.match_time}<span data-v-21ea927d="" class="date">
-                                                ${match.bet_details.match_date}</span></div>
-                                        </div> 
-                                    </div>
-                                    <div data-v-21ea927d="" class="value odd win"><span data-v-21ea927d=""
-                                            class="">${format2dp(match.bet_details.odds)}</span> <span data-v-3cc7db1a="" data-v-21ea927d=""
-                                            class="badge type-win mode-circle badge-result"></span></div>
-                                </div>
-                                <div data-v-21ea927d="" class="event-line">
-                                    <div data-v-21ea927d="" class="label">
-                                        <div data-v-21ea927d="" class="match" data-test-id="matchName"><span
-                                                data-v-d3b7a662="" data-v-21ea927d="">${match.home_team} - ${match.away_team}</span></div>
-                                        <div data-v-21ea927d="" class="league">${match.league}</div>
-                                        <div data-v-21ea927d="" class="bold"><span data-v-21ea927d="">Correct Score | Full Time
-                                                (${match.full_time_score})</span></div>
-                                    </div>
-                                    <div data-v-21ea927d="" class="value">
-                                        <div data-v-21ea927d=""><span data-v-21ea927d="" class="result">${match.full_time_score}</span></div>
-                                        
-                                    </div>
-                                </div>
-                   
+                        <div data-v-21ea927d="" class="event-label">
+                            <div data-v-21ea927d="" class="label">
+                                <div data-v-21ea927d="">${match.bet_details.match_time}<span data-v-21ea927d="" class="date">
+                                    ${match.bet_details.match_date}</span></div>
+                            </div> 
+                        </div>
+                        <div data-v-21ea927d="" class="value odd win"><span data-v-21ea927d=""
+                                class="">${format2dp(match.bet_details.odds)}</span> <span data-v-3cc7db1a="" data-v-21ea927d=""
+                                class="badge type-win mode-circle badge-result"></span></div>
+                    </div>
+                    <div data-v-21ea927d="" class="event-line">
+                        <div data-v-21ea927d="" class="label">
+                            <div data-v-21ea927d="" class="match" data-test-id="matchName"><span
+                                    data-v-d3b7a662="" data-v-21ea927d="">${match.home_team} - ${match.away_team}</span></div>
+                            <div data-v-21ea927d="" class="league">${match.league}</div>
+                            <div data-v-21ea927d="" class="bold"><span data-v-21ea927d="">Correct Score | Full Time
+                                    (${match.full_time_score})</span></div>
+                        </div>
+                        <div data-v-21ea927d="" class="value">
+                            <div data-v-21ea927d=""><span data-v-21ea927d="" class="result">${match.full_time_score}</span></div>
+                        </div>
+                    </div>
                 `;
                 matchesContainer.appendChild(matchDiv);
             });
+
+            // Initialize tax details panel as closed
+            const taxPanel = document.querySelector('.expansion-panel');
+            if (taxPanel) {
+                taxPanel.classList.remove('open');
+                taxPanel.classList.add('closed');
+            }
         });
     }
-    loadLatestBet();
+
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        loadLatestBet();
+    });
+
+
 </script>
     </body>
 </html>
