@@ -827,7 +827,11 @@ img[data-v-1f7f90db] {
 .event .event-line .value{
     font-weight: 700;
 }
+.event .event-line .label .match[data-v-21ea927d] {
+    align-items: center;
+    display: flex;
 
+}
 .event .event-line .label .league {
     color: #8e9398;
 }    
@@ -2087,7 +2091,7 @@ svg[data-v-02f45589], img[data-v-02f45589] {
     flex-shrink: 0;
     width: 14px;
     height: 14px;
-    margin-right: 0px;
+    margin-right: 4px;
     display: inline-block;
 }
 
