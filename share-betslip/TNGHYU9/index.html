@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" data-next-head="">
+
+     <link rel="stylesheet" type="text/css" href="style/style_1.css">
+     <link rel="stylesheet" type="text/css" href="style/style_2.css">
+     <link rel="stylesheet" type="text/css" href="style/style_3.css">
+     <link rel="stylesheet" type="text/css" href="style/style_4.css">
+     <link rel="stylesheet" type="text/css" href="style/style_5.css">
+     <link rel="stylesheet" type="text/css" href="style/style_6.css">
+     <link rel="stylesheet" type="text/css" href="style/style_7.css">
+     <link rel="stylesheet" type="text/css" href="style/style_8.css">
+     <link rel="stylesheet" type="text/css" href="style/style_9.css">
+     <link rel="stylesheet" type="text/css" href="style/style_10.css">
+     <link rel="stylesheet" type="text/css" href="style/style_11.css">
+   
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512x512.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/icon-512x512.png">
+    <meta name="version" content="2.240.92">
+    <link rel="preload" href="/_next/static/css/577284e625da8064.css" as="style">
+    <link rel="preload" href="/_next/static/css/3923c22533aac6d0.css" as="style">
+    <link rel="preload" href="/_next/static/css/a3e495afae349b65.css" as="style">
+    <script type="text/javascript" async=""
+        src="https://www.googletagmanager.com/gtag/js?id=AW-342184648&amp;cx=c&amp;gtm=4e69g1"></script>
+    <script type="text/javascript" async=""
+        src="https://www.googletagmanager.com/gtag/js?id=G-81NDDTKQDC&amp;cx=c&amp;gtm=4e69g1"></script>
+    <script>
+        // globalThis polyfill for Chrome 70 - CRITICAL
+        (function () {
+            if (typeof globalThis === 'undefined') {
+                var globalObj = null;
+                if (typeof window !== 'undefined') {globalObj = window;}
+                else if (typeof self !== 'undefined') {globalObj = self;}
+                else if (typeof global !== 'undefined') {globalObj = global;}
+                else {globalObj = this;}
+
+                try {
+                    if (globalObj && !globalObj.globalThis) {
+                        Object.defineProperty(globalObj, 'globalThis', {
+                            configurable: true,
+                            enumerable: false,
+                            writable: true,
+                            value: globalObj
+                        });
+                    }
+                } catch (e) {
+                    if (globalObj) {globalObj.globalThis = globalObj;}
+                }
+            }
+        })();
+        // BigInt shim for Safari 12-14 / iOS 12-14 - prevents crash before async polyfill loads
+        (function () {
+            if (typeof BigInt === 'undefined') {
+                window.BigInt = function (value) {return Number(value);};
+                window.BigInt.asIntN = function (bits, n) {return n;};
+                window.BigInt.asUintN = function (bits, n) {return n;};
+                window.BigInt.__shim = true;
+            }
+        })();
+        // MediaQueryList.addEventListener polyfill for iOS < 14 / Safari < 14
+        // iOS 12 does not expose MediaQueryList globally, so patch via instance prototype.
+        (function () {
+            if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return;
+            var probe = window.matchMedia('(min-width: 0px)');
+            if (!probe || typeof probe.addEventListener === 'function') return;
+            if (typeof probe.addListener !== 'function') return;
+            var proto = Object.getPrototypeOf(probe);
+            if (!proto) return;
+            proto.addEventListener = function (type, listener) {
+                if (type === 'change' && typeof listener === 'function') this.addListener(listener);
+            };
+            proto.removeEventListener = function (type, listener) {
+                if (type === 'change' && typeof listener === 'function') this.removeListener(listener);
+            };
+        })();
+    </script>
+    <script>
+        (function () {
+            try {
+                var timeout = 10000;
+                // Armed before the flag is set, so a missing setTimeout leaves it unset rather than stuck false.
+                setTimeout(function () {
+                    window.prerenderReady = true;
+                }, timeout);
+                window.prerenderReadyDeadline = Date.now() + timeout;
+                window.prerenderReady = false;
+            } catch (e) {
+                // Unreachable today — nothing follows the line above. Here so that stays true if something does.
+                try {
+                    window.prerenderReady = true;
+                } catch (e2) { }
+            }
+        })();
+    </script>
+    <script>window.__pwaPromptEvent = null; window.addEventListener('beforeinstallprompt', function (e) {e.preventDefault(); window.__pwaPromptEvent = e;});</script>
+    <script>
+        (function () {
+            try {
+                var t = null;
+                var native = typeof window !== 'undefined' ? window.theme : null;
+                if (native === 'dark' || native === 'light') {
+                    t = native;
+                    // Seed pawablox storage so ThemeProvider hydrates with the same value
+                    // and does not briefly fall back to default before useApplyThemePreference fires.
+                    try {localStorage.setItem('pawablox-theme', native);} catch (e) { }
+                }
+                if (!t) {
+                    try {
+                        var stored = localStorage.getItem('pawablox-theme');
+                        if (stored === 'dark' || stored === 'light') {
+                            t = stored;
+                        } else if (window.matchMedia) {
+                            t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                        }
+                    } catch (e) { }
+                }
+                if (t === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) { }
+        })();
+    </script>
+    <link rel="stylesheet" href="/_next/static/css/577284e625da8064.css" data-n-g="">
+    <link rel="stylesheet" href="/_next/static/css/3923c22533aac6d0.css" data-n-p="">
+    <link rel="stylesheet" href="/_next/static/css/a3e495afae349b65.css" data-n-p=""><noscript data-n-css=""></noscript>
+    <script defer="" nomodule="" src="/_next/static/chunks/polyfills-42372ed130431b0a.js"></script>
+    <script src="/env.js?v=2.240.92" defer="" data-nscript="beforeInteractive"></script>
+    <script src="/_next/static/chunks/webpack-9499474ab0f0bdd4.js" defer=""></script>
+    <script src="/_next/static/chunks/build-version-9d59cd701d7de56c.js" defer=""></script>
+    <script src="/_next/static/chunks/main-865f51c41f712db5.js" defer=""></script>
+    <script src="/_next/static/chunks/proto-json-converter-08d9a6c92ec77a8d.js" defer=""></script>
+    <script src="/_next/static/chunks/zod-ddc9f81e015f6720.js" defer=""></script>
+    <script src="/_next/static/chunks/calculator-bundle-ccc26e115b66f137.js" defer=""></script>
+    <script src="/_next/static/chunks/redux-45b6f9c1e9c31a05.js" defer=""></script>
+    <script src="/_next/static/chunks/pages/_app-afbae98b4971e2c7.js" defer=""></script>
+    <script src="/_next/static/chunks/21772-c3636a1a85c55d6e.js" defer=""></script>
+    <script src="/_next/static/chunks/7844-a10af72df42eb1cc.js" defer=""></script>
+    <script src="/_next/static/chunks/13052-45afe4a1e8fc04d6.js" defer=""></script>
+    <script src="/_next/static/chunks/44419-0f074b37510c816b.js" defer=""></script>
+    <script src="/_next/static/chunks/88909-5f45f5ec572aa1ad.js" defer=""></script>
+    <script src="/_next/static/chunks/55710-a12e91acacf0d21c.js" defer=""></script>
+    <script src="/_next/static/chunks/56-eb89542dd761a729.js" defer=""></script>
+    <script src="/_next/static/chunks/19636-801d7514f239dd4a.js" defer=""></script>
+    <script src="/_next/static/chunks/35371-0e4e84bf2c2ad3c5.js" defer=""></script>
+    <script src="/_next/static/chunks/36024-d46bb9127ba36a01.js" defer=""></script>
+    <script src="/_next/static/chunks/71585-dbf512dfb627107a.js" defer=""></script>
+    <script src="/_next/static/chunks/53454-8d246653137941da.js" defer=""></script>
+    <script src="/_next/static/chunks/93289-f2276c1f6f676e8e.js" defer=""></script>
+    <script src="/_next/static/chunks/pages/share-betslip-a7deb636802b7f05.js" defer=""></script>
+    <script src="/_next/static/IMbpET3t33OV5mSBscxCp/_buildManifest.js" defer=""></script>
+    <script src="/_next/static/IMbpET3t33OV5mSBscxCp/_ssgManifest.js" defer=""></script>
+    <style id="__jsx-e8cf745175e0964a">
+        #__next {
+            height: 100%
+        }
+    </style>
+    <script id="gtm-script" async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-TWK49GS"></script>
+    <title>Share Betslip | betPawa Tanzania</title>
+    <meta name="description" content="Share Betslip. betPawa Tanzania - best online sports betting in Tanzania"
+        data-next-head="">
+    <meta property="og:title" content="Share Betslip | betPawa Tanzania" data-next-head="">
+    <meta property="og:description" content="Share Betslip. betPawa Tanzania - best online sports betting in Tanzania"
+        data-next-head="">
+    <meta property="og:image" content="https://www.betpawa.co.tz/seo/seo_social.jpg" data-next-head="">
+    <meta property="og:url" content="https://www.betpawa.co.tz/share-betslip?id=UXI2KXZ" data-next-head="">
+    <meta name="twitter:card" content="summary_large_image" data-next-head="">
+    <meta name="twitter:title" content="Share Betslip | betPawa Tanzania" data-next-head="">
+    <meta name="twitter:description" content="Share Betslip. betPawa Tanzania - best online sports betting in Tanzania"
+        data-next-head="">
+    <meta name="twitter:image" content="https://www.betpawa.co.tz/seo/seo_social.jpg" data-next-head="">
+    <meta name="app-id" content="betpawa-react" data-next-head="">
+    <meta name="viewport" content="width=device-width, initial-scale=1" data-next-head="">
+    <script src="https://snippet.maze.co/maze-universal-loader.js?apiKey=66f65a32-51d1-48ca-8b0b-8efc031b4b6c"
+        async=""></script>
+    <link rel="stylesheet" type="text/css" href="/_next/static/css/78dc63bc347b261e.css">
+    <link rel="stylesheet" type="text/css" href="/_next/static/css/68c6c8015251d763.css">
+    <link rel="stylesheet" type="text/css" href="/_next/static/css/0bcfaa8feb63b560.css">
+    <link rel="stylesheet" type="text/css" href="/_next/static/css/5f5d83ea05b3d8e4.css">
+    <link rel="stylesheet" type="text/css" href="/_next/static/css/85d2400a2567fc6c.css">
+    <link rel="stylesheet" type="text/css" href="/_next/static/css/74c667f0df00b5c7.css">
+    <link rel="stylesheet" type="text/css" href="/_next/static/css/0083313dee63e185.css">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/72939-ca69302cda3075a6.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/71476-5054be38d70569e3.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/pages/%5B%5B...page%5D%5D-92d6935f2e5e6ea7.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/58372-2a420a1b178263ef.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/29532-522749b2c4c8ce3d.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/43002-fb1a3bc78f8b41ac.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/pages/login-6558d6c6c5d5931a.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/pages/join-now-dcebb33c14425f5b.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/rsocket-1e36bfd0ba563bfe.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/6998-315c45eff3fbb309.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/37523-0728e8abc09bb9c8.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/77865-a02b79f156a16426.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/47137-16eeab5cf626330a.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/46973-2806d13c08072a32.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/33651-2722bd6230796cbe.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/82846-57137a6ca04e8862.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/pages/events-ae39cf572a86db61.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/pages/events/live-13d1b839b7b6f15f.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/6822-c1ddb2f86d8b3a2f.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/17164-1de88a2145603ba2.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/10663-580e2cbfc87636dd.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/pages/casino-f7aa3a14200da266.js">
+    <link as="script" rel="prefetch" href="/_next/static/chunks/pages/virtual-lobby-269e33b5fdc73aa1.js">
+    <script type="text/javascript" async=""
+        src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/342184648/?random=1789763826865&amp;cv=11&amp;fst=1789763826865&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;en=gtag.config&amp;gtm=45be69g1v9213128152z8843568780za20gzb843568780zd843568780xecxf1&amp;gcd=13l3l3l3l1l1&amp;dma=0&amp;tag_exp=115616986~115938465~115938468~118897920~118897930~120213116~120385422~120469145~120469153~120847435&amp;u_w=1920&amp;u_h=1080&amp;url=https%3A%2F%2Fwww.betpawa.co.tz%2Fshare-betslip%3Fid%3DUXI2KXZ&amp;rcb=0&amp;frm=0&amp;tiba=Share%20Betslip%20%7C%20betPawa%20Tanzania&amp;hn=www.googleadservices.com&amp;npa=0&amp;pscdl=noapi&amp;auid=1448041582.1789581254&amp;uaa=x86&amp;uab=64&amp;uafvl=Google%2520Chrome%3B149.0.7827.200%7CChromium%3B149.0.7827.200%7CNot)A%253BBrand%3B24.0.0.0&amp;uamb=0&amp;uam=&amp;uap=Linux&amp;uapv=&amp;uaw=0&amp;data=event%3Dgtag.config&amp;ept=9&amp;rfmt=3&amp;fmt=4"></script>
+    <script src="https://snippet.maze.co/static/1fef61da742fac98c371cd5a408a0192b2d2514d/contextualScaffold.js"
+        async=""></script>
+    <link rel="stylesheet" type="text/css" href="/_next/static/css/9e5c06abefd48cd4.css">
+</head>
+
+<body>
+    <div id="__next">
+        <div class="PageContainer_app__V61uo">
+            <div class="Portal_container__yghNZ" id="tooltip-portal"></div>
+            <div class="Sidebar_container__NILrc Sidebar_rightContainer___glJF Sidebar_closed__cc0lb">
+                <div class="Sidebar_content__X3DIt Sidebar_rightContent__lSxZY RightSideBar_sidebar__uSarQ"
+                    style="transform: translateX(110%);"></div>
+            </div>
+            <div class="Sidebar_container__NILrc Sidebar_rightContainer___glJF Sidebar_closed__cc0lb">
+                <div class="Sidebar_content__X3DIt Sidebar_rightContent__lSxZY BetslipSidebar_sidebar__NyQx9"
+                    style="transform: translateX(110%);">
+                    <div class="BetslipSidebar_header__dYNxd">
+                        <div class="BetslipSidebar_betslipTitleGroup__kBDhl"><span
+                                class="BetslipSidebar_betslipTitle___Ipx1 text-xs bold">Betslip</span></div>
+                        <div class="BetslipSidebar_headerActions__R8egF"><button type="button" aria-label="Close"
+                                class="_iconButton_13bza_1 _tertiary_13bza_95 _sm_13bza_26 _square_13bza_41"
+                                data-theme="dark" data-test-id="auto-betslip-sidebar-header-icon-button"><span
+                                    class="_icon_13bza_1"><svg xmlns="http://www.w3.org/2000/svg" width="16px"
+                                        height="16px" viewBox="0 0 24 24" fill="none" class="_icon_108qn_1"
+                                        data-test-id="auto-betslip-sidebar-header-icon-x">
+                                        <path
+                                            d="M17.293 5.29295C17.6835 4.90243 18.3165 4.90243 18.707 5.29295C19.0975 5.68348 19.0975 6.31649 18.707 6.70702L13.414 12L18.707 17.293C19.0975 17.6835 19.0975 18.3165 18.707 18.707C18.3165 19.0975 17.6835 19.0975 17.293 18.707L12 13.414L6.70702 18.707C6.31649 19.0975 5.68348 19.0975 5.29295 18.707C4.90243 18.3165 4.90243 17.6835 5.29295 17.293L10.5859 12L5.29295 6.70702C4.90243 6.31649 4.90243 5.68348 5.29295 5.29295C5.68348 4.90243 6.31649 4.90243 6.70702 5.29295L12 10.5859L17.293 5.29295Z"
+                                            fill="currentColor"></path>
+                                    </svg></span></button></div>
+                    </div>
+                    <div class="BetslipSidebar_sidebarScrollable__gMI9s">
+                        <div class="BetslipTabs_emptyWrapper__u6Rwt">
+                            <form class="BetBonus_betBonusContainer__PRiMc" data-test-id="auto-bet-bonus-form">
+                                <div class="_input_1y5z1_1 _default_1y5z1_82 _fullWidth_1y5z1_14"><label
+                                        id="bookingCode-label" for="bookingCode" class="_label_1y5z1_18">Booking
+                                        Code</label>
+                                    <div class="_fieldWrapper_1y5z1_35"><input id="bookingCode" class="_field_1y5z1_35"
+                                            data-test-id="bet-booking-code-input" maxlength="7"
+                                            placeholder="Enter booking code" name="bookingCode"></div>
+                                </div><button type="submit" data-test-id="load-betslip"
+                                    class="_button_1od8m_1 _primary_1od8m_63 _lg_1od8m_48 _square_1od8m_55 _fullWidth_1od8m_174 mt-2"><span
+                                        class="_title_1od8m_194">Load Betslip</span></button>
+                            </form>
+                            <div class="BetslipEmptyState_root__g2SwF">
+                                <div class="BetslipEmptyState_emptyBetslipIllustration__bM3cb"><img width="184"
+                                        height="184" alt="" loading="lazy" data-test-id="betslip-empty-state-img"
+                                        src="/img/illustrations/empty-betslip.svg"></div><span
+                                    class="BetslipEmptyState_emptyBetslipText__C_chm text-lg bold">Betslip is
+                                    empty</span><a class="BetslipEmptyState_ctaLink__YEqGN"
+                                    data-test-id="auto-betslip-empty-state-cf-link-1" href="/learn-how-to-bet"><button
+                                        type="button" data-test-id="auto-betslip-empty-state-button-1"
+                                        class="_button_1od8m_1 _secondary_1od8m_77 _lg_1od8m_48 _square_1od8m_55 _fullWidth_1od8m_174"><span
+                                            class="_title_1od8m_194">Learn how to bet</span></button></a><a
+                                    class="BetslipEmptyState_ctaLink__YEqGN"
+                                    data-test-id="auto-betslip-empty-state-cf-link-2"
+                                    href="/events?categoryId=2&amp;marketId=1X2"><button type="button"
+                                        data-test-id="auto-betslip-empty-state-button-2"
+                                        class="_button_1od8m_1 _outline_1od8m_91 _lg_1od8m_48 _square_1od8m_55 _fullWidth_1od8m_174"><span
+                                            class="_title_1od8m_194">Discover more sports</span></button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="Navbar_nav__VCKCE" data-test-id="header-body">
+                <div class="Navbar_leftContent__nWLzC"><a class="Logo_logoLink__52ybI" data-test-id="logo" href="https://www.betpawa.co.tz"><svg
+                            viewBox="0 0 112 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M53.1182 0.500101H43.5725L40.1135 19.4618H45.9589L46.9778 13.2833H52.5819C59.1244 13.2833 59.4194 7.10475 59.4194 7.10475C60.0629 0.393575 53.1182 0.500101 53.1182 0.500101ZM53.9226 6.59875C53.8421 8.78254 50.8658 8.75591 50.8658 8.75591H47.7286L48.399 4.94758H51.8311C54.0298 4.97422 53.9226 6.59875 53.9226 6.59875Z"
+                                fill="#9CE800"></path>
+                            <path
+                                d="M12.5222 4.86796C12.5222 4.86796 9.49229 4.78806 7.96391 6.54575L9.09009 0.500366H3.35196L0.000244141 19.1425H5.63112L5.84563 17.4914C5.84563 17.4914 7.58852 19.5953 10.1894 19.4355C10.1894 19.4355 17.3755 19.542 17.4023 10.5139C17.3755 10.5405 17.7241 4.84133 12.5222 4.86796ZM11.7178 12.1118C11.5838 14.2157 10.1626 15.3076 8.82195 15.3076C7.48127 15.3076 6.5696 14.1358 6.81092 12.2716C7.05225 10.2475 8.39293 8.80944 9.8945 8.91597C12.2273 9.04913 11.7178 12.1118 11.7178 12.1118Z"
+                                fill="white"></path>
+                            <path
+                                d="M31.4797 9.44793C31.4797 13.4427 25.688 14.0019 22.229 13.9753C22.2022 13.9753 22.3631 14.5079 22.3899 14.5346C22.7653 15.2536 23.7038 15.4933 24.4545 15.5199C25.4466 15.5466 26.4656 15.3602 27.3772 15.0139C27.8599 14.8275 28.2889 14.5612 28.7179 14.2416L30.3535 16.9314C30.4072 17.0113 29.2274 17.7836 29.1737 17.8369C28.2353 18.4228 27.1895 18.8489 26.117 19.0886C24.0255 19.568 21.5318 19.6745 19.5208 18.7956C18.1265 18.1831 17.188 17.038 16.759 15.5732C16.5177 14.721 16.4373 13.8422 16.4373 12.9899C16.4373 8.99519 19.2795 5.13361 25.3126 5.13361C29.0129 5.16024 31.4797 6.54508 31.4797 9.44793ZM24.9908 8.38267C23.2211 8.38267 22.0681 9.74088 21.9609 11.6317C23.8646 11.5518 26.3851 10.8594 26.3851 9.5012C26.3583 8.80877 25.8488 8.38267 24.9908 8.38267Z"
+                                fill="white"></path>
+                            <path
+                                d="M39.1746 0.5H34.509L33.651 5.18717H31.4791L30.7551 8.9156H32.9538L32.069 15.467C32.069 15.467 31.5595 19.4085 35.4743 19.4617C39.3891 19.515 41.427 17.3312 41.427 17.3312L39.6573 14.3751C39.6573 14.3751 37.244 15.2273 37.2977 13.7093C37.3513 12.1913 37.8876 8.9156 37.8876 8.9156L41.0784 8.88897L41.7487 5.13391H38.3166L39.1746 0.5Z"
+                                fill="white"></path>
+                            <path
+                                d="M80.1462 5.34692H74.3008L76.285 19.4617H81.326L85.0799 12.4043L85.8038 19.4617H90.8984L98.0041 5.34692H91.8369L89.2092 12.8304L88.3511 5.34692H84.0341L80.5484 13.15L80.1462 5.34692Z"
+                                fill="#9CE800"></path>
+                            <path
+                                d="M69.3948 5.34686L69.1535 6.65181C69.1535 6.65181 67.1961 5.02728 64.4611 5.02728C61.7261 5.02728 57.57 7.23771 57.5968 13.5494C57.5968 16.9583 58.9643 19.7013 63.1472 19.4883C63.1472 19.4883 65.3996 19.5149 66.9816 18.0502L66.7135 19.435H72.0762L74.7576 5.34686H69.3948ZM65.2923 15.1739C63.9785 15.2538 63.04 14.1353 62.9327 12.9102C62.7987 11.2058 64.193 9.26171 65.9895 9.12856C67.3838 9.02203 68.215 9.74108 68.51 10.0873L67.7592 14.082C67.062 14.6946 66.1772 15.1207 65.2923 15.1739Z"
+                                fill="#9CE800"></path>
+                            <path
+                                d="M106.637 5.34686L106.396 6.65181C106.396 6.65181 104.438 5.02728 101.703 5.02728C98.9683 5.02728 94.8122 7.23771 94.839 13.5494C94.839 16.9583 96.2065 19.7013 100.389 19.4883C100.389 19.4883 102.642 19.5149 104.224 18.0502L103.956 19.435H109.318L112 5.34686H106.637ZM102.535 15.1739C101.221 15.2538 100.282 14.1353 100.175 12.9102C100.041 11.2058 101.435 9.26171 103.232 9.12856C104.626 9.02203 105.457 9.74108 105.752 10.0873L105.001 14.082C104.304 14.6946 103.393 15.1207 102.535 15.1739Z"
+                                fill="#9CE800"></path>
+                        </svg></a></div>
+                <div class="Navbar_rightContent__M_csM"><button type="button" aria-label="headerSearchButton"
+                        class="_iconButton_13bza_1 _tertiary_13bza_95 _sm_13bza_26 _square_13bza_41"
+                        data-test-id="header-search-button" data-theme="dark"><span class="_icon_13bza_1"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24"
+                                fill="none" class="_icon_108qn_1" data-test-id="auto-navbar-icon-search">
+                                <path
+                                    d="M18 11C18 7.13401 14.866 4 11 4C7.13401 4 4 7.13401 4 11C4 14.866 7.13401 18 11 18C14.866 18 18 14.866 18 11ZM20 11C20 13.125 19.2619 15.0766 18.0303 16.6162L21.707 20.293C22.0976 20.6835 22.0976 21.3165 21.707 21.707C21.3165 22.0976 20.6835 22.0976 20.293 21.707L16.6162 18.0303C15.0766 19.2619 13.125 20 11 20C6.02944 20 2 15.9706 2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11Z"
+                                    fill="currentColor"></path>
+                            </svg></span></button>
+                    <div class="d-flex gap-2"><a class="Navbar_authLink__PVBcl"
+                            data-test-id="auto-navbar-with-balance-cf-link-1" href="https://www.betpawa.co.tz/login"><button type="button"
+                                data-test-id="auto-navbar-with-balance-button-1"
+                                class="_button_1od8m_1 _secondary_1od8m_77 _sm_1od8m_34 _square_1od8m_55 Navbar_buttonPadding__havVM"><span
+                                    class="_title_1od8m_194">Login</span></button></a><a
+                            data-test-id="header-join-now-button" class="Navbar_authLink__PVBcl"
+                            href="https://www.betpawa.co.tz/join-now"><button type="button" data-test-id="auto-navbar-with-balance-button-2"
+                                class="_button_1od8m_1 _primary_1od8m_63 _sm_1od8m_34 _square_1od8m_55 Navbar_buttonPadding__havVM"><span
+                                    class="_title_1od8m_194">Join Now</span></button></a></div>
+                    <div class="hideOnMobile"><span class="AccountMenu_iconWrapper__kXWrg"><button type="button"
+                                aria-label="Account"
+                                class="_iconButton_13bza_1 _secondary_13bza_64 _sm_13bza_26 _circle_13bza_45 AccountMenu_accountButton__T04Fk"
+                                data-test-id="account-main-menu-button" aria-haspopup="true"
+                                aria-controls="dropdown-menu"><span class="_icon_13bza_1"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16px" height="16px"
+                                        viewBox="0 0 24 24" fill="none" class="_icon_108qn_1"
+                                        data-test-id="account-menu-icon-account">
+                                        <path
+                                            d="M16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12C14.2091 12 16 10.2091 16 8ZM18 8C18 9.94598 17.0726 11.6742 15.6367 12.7705C16.6434 13.2154 17.571 13.8424 18.3643 14.6357C20.0521 16.3236 21 18.6131 21 21C21 21.5523 20.5523 22 20 22C19.4477 22 19 21.5523 19 21C19 19.1435 18.2629 17.3626 16.9502 16.0498C15.6374 14.7371 13.8565 14 12 14C10.1435 14 8.36256 14.7371 7.0498 16.0498C5.73705 17.3626 5 19.1435 5 21C5 21.5523 4.55228 22 4 22C3.44772 22 3 21.5523 3 21C3 18.6131 3.94791 16.3236 5.63574 14.6357C6.42882 13.8427 7.35593 13.2153 8.3623 12.7705C6.92681 11.6742 6 9.9457 6 8C6 4.68629 8.68629 2 12 2C15.3137 2 18 4.68629 18 8Z"
+                                            fill="currentColor"></path>
+                                    </svg></span></button></span></div>
+                </div>
+            </nav>
+            <div class="Navbar_subNavContainer___PPLz">
+                <div class="Navbar_subNavbarWrapper__hGtB5">
+                    <nav class="SubNavbar_subNavbar__8xGXf sub-navbar" data-test-id="header-tabs"><a
+                            data-test-id="tabs-Homepage"
+                            class="SubNavbar_tabItem__u_R30 SubNavbar_textHidden__bnJ5l SubNavbar_home__lYE_V text-xs bold"
+                            href="https://www.betpawa.co.tz"><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"
+                                viewBox="0 0 24 24" fill="none" class="_icon_108qn_1"
+                                data-test-id="auto-sub-navbar-tab-item-pawablox-icon">
+                                <path
+                                    d="M10 12.9996V19.9996H14V12.9996H10ZM22 18.9996C22 19.7952 21.6837 20.559 21.1211 21.1216C20.5585 21.6841 19.7955 21.9996 19 21.9996H5C4.20447 21.9996 3.44149 21.6841 2.87891 21.1216C2.3163 20.559 2 19.7952 2 18.9996V9.99957C2 9.56347 2.09479 9.13248 2.27832 8.73688C2.46197 8.34108 2.73025 7.99023 3.06348 7.70856L10.0586 1.71344L10.0635 1.70953C10.605 1.2519 11.291 1.00055 12 1.00055C12.6202 1.00055 13.2229 1.19289 13.7266 1.54742L13.9365 1.70953L13.9414 1.71344L20.9365 7.70856L21.0586 7.81696C21.3356 8.07826 21.561 8.39051 21.7217 8.73688C21.9052 9.13248 22 9.56347 22 9.99957V18.9996ZM16 19.9996H19C19.2651 19.9996 19.5195 19.895 19.707 19.7076C19.8946 19.52 20 19.2648 20 18.9996V9.99957C20 9.85421 19.9684 9.71054 19.9072 9.57867C19.846 9.44674 19.7566 9.32979 19.6455 9.2359L19.6406 9.23102L12.6455 3.2359V3.23688C12.465 3.08433 12.2363 3.00055 12 3.00055C11.7637 3.00055 11.535 3.08433 11.3545 3.23688L11.3535 3.2359L4.35938 9.23102L4.35449 9.2359C4.24342 9.32979 4.15399 9.44674 4.09277 9.57867C4.0316 9.71054 4 9.85421 4 9.99957V18.9996C4 19.2648 4.10543 19.52 4.29297 19.7076C4.48048 19.895 4.73491 19.9996 5 19.9996H8V12.9996C8.00012 12.4693 8.21097 11.9605 8.58594 11.5855C8.96099 11.2106 9.46967 10.9996 10 10.9996H14C14.5303 10.9996 15.039 11.2106 15.4141 11.5855C15.789 11.9605 15.9999 12.4693 16 12.9996V19.9996Z"
+                                    fill="currentColor"></path>
+                            </svg></a><a data-test-id="tabs-Sports" class="SubNavbar_tabItem__u_R30 text-xs bold"
+                            href="https://www.betpawa.co.tz/events?categoryId=2&amp;marketId=1X2"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20px" height="20px" viewBox="0 0 24 24" fill="none" class="_icon_108qn_1"
+                                data-test-id="auto-sub-navbar-tab-item-pawablox-icon">
+                                <path
+                                    d="M21 12C21 11.2995 20.917 10.6183 20.7656 9.96387C20.2213 10.1192 19.5843 10.3378 18.9795 10.5605C18.5601 10.715 18.1755 10.8636 17.8789 10.9814C17.7771 12.6507 17.3172 14.0284 16.8574 15.0205C16.632 15.5069 16.4039 15.9025 16.2168 16.1992C16.3984 16.4586 16.6293 16.7868 16.8838 17.1367C17.2697 17.6673 17.6878 18.2176 18.0518 18.6611C19.8628 17.0148 21 14.6403 21 12ZM8.55176 18.3047C8.21664 18.7753 7.82954 19.3042 7.46875 19.7744C8.7999 20.5519 10.3472 21 12 21C13.6094 21 15.1186 20.575 16.4258 19.835C16.0306 19.3479 15.6177 18.7963 15.2666 18.3135C14.9902 17.9335 14.7404 17.5794 14.5498 17.3066C13.1051 17.5515 11.7192 17.5395 10.6621 17.46C10.0944 17.4172 9.61342 17.3532 9.25781 17.2979C9.06927 17.5701 8.82269 17.9242 8.55176 18.3047ZM11.8506 7.83203C11.558 7.97981 11.1445 8.20076 10.6719 8.49023C9.80692 9.02005 8.7777 9.75891 7.91699 10.6689C7.92 10.7153 7.92249 10.7657 7.92676 10.8193C7.95403 11.1623 8.00871 11.6441 8.11816 12.1914C8.32076 13.2044 8.69531 14.3601 9.36035 15.2881C9.40103 15.2951 9.44499 15.3039 9.49219 15.3115C9.80808 15.3625 10.264 15.4236 10.8125 15.4648C11.8241 15.541 13.1176 15.5416 14.418 15.2959C14.4309 15.2766 14.446 15.2576 14.46 15.2363C14.6153 14.9993 14.8287 14.642 15.043 14.1797C15.4339 13.3361 15.8224 12.156 15.8887 10.7256C15.8717 10.7087 15.8549 10.6916 15.8379 10.6748C15.6125 10.4524 15.2872 10.1383 14.874 9.78418C14.1249 9.14209 13.1051 8.38467 11.9053 7.80469C11.8877 7.81348 11.8692 7.82263 11.8506 7.83203ZM15.9072 10.1934C15.9019 10.2364 15.9004 10.2728 15.9004 10.2998C15.9004 10.2639 15.9035 10.2285 15.9072 10.1934ZM16.0312 9.80762C16.0226 9.82345 16.0134 9.83869 16.0059 9.85449C16.0138 9.83856 16.0225 9.82309 16.0312 9.80762ZM16.3711 9.45117C16.2382 9.53104 16.1434 9.63202 16.0742 9.73633C16.1516 9.62298 16.2521 9.52528 16.3711 9.45117ZM16.4727 9.39746C16.452 9.40694 16.4323 9.41739 16.4131 9.42773C16.4325 9.41691 16.4524 9.40705 16.4727 9.39746ZM12.9004 6.0625C14.2535 6.73419 15.3738 7.57825 16.1758 8.26562C16.5655 8.5997 16.8829 8.90179 17.1191 9.13184C17.4303 9.00808 17.8391 8.84894 18.2881 8.68359C18.8399 8.48037 19.488 8.25441 20.1006 8.0752C18.7668 5.32743 16.0769 3.36046 12.9004 3.04492V6.0625ZM10.9004 3.06934C7.82484 3.4441 5.22849 5.36776 3.91699 8.03906C4.49963 8.2337 5.11948 8.47152 5.64844 8.68457C6.0262 8.83672 6.37277 8.98403 6.65039 9.10254C7.63358 8.10852 8.73838 7.33 9.62793 6.78516C10.1296 6.47789 10.5723 6.23932 10.9004 6.07227V3.06934ZM3 12C3 14.5986 4.10198 16.9392 5.86328 18.582C6.19571 18.1495 6.57322 17.6355 6.92285 17.1445C7.16864 16.7994 7.39321 16.475 7.57227 16.2168C6.77879 15.0142 6.37134 13.6544 6.15723 12.584C6.0292 11.9439 5.96473 11.3814 5.93262 10.9775C5.93241 10.9749 5.93185 10.9723 5.93164 10.9697C5.65373 10.8507 5.29448 10.6984 4.90137 10.54C4.34586 10.3163 3.75484 10.0949 3.24219 9.9248C3.0849 10.5911 3 11.2856 3 12ZM23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.9934 5.81446 1.11524 11.7949 1.00586C11.8295 1.00225 11.8649 1 11.9004 1C11.9118 1 11.9232 1.00157 11.9346 1.00195C11.9564 1.00183 11.9782 1 12 1C16.8109 1 20.8979 4.08929 22.3916 8.3916C22.4058 8.42569 22.4173 8.46099 22.4277 8.49707C22.7973 9.59759 23 10.775 23 12Z"
+                                    fill="currentColor"></path>
+                            </svg><span class="SubNavbar_tabLabel__uZ1eN">Sports</span></a><a data-test-id=""
+                            class="SubNavbar_tabItem__u_R30 text-xs bold"
+                            href="https://www.betpawa.co.tz/events/live?categoryId=2&amp;marketId=1X2&amp;sorting=competitionPriority_DESC"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24"
+                                fill="none" class="_icon_108qn_1" data-test-id="auto-sub-navbar-tab-item-pawablox-icon">
+                                <path
+                                    d="M9 1C9.23668 1 9.46796 1.06686 9.66699 1.19238L9.75 1.25L9.82812 1.31348C9.97922 1.44708 10.096 1.61531 10.168 1.80371L10.2031 1.90918L15 18.9775L16.627 13.1895C16.804 12.5584 17.1834 12.0028 17.7061 11.6074C18.2281 11.2125 18.865 10.9992 19.5195 11H22C22.5523 11 23 11.4477 23 12C23 12.5523 22.5523 13 22 13H19.5176C19.2992 12.9996 19.0863 13.0704 18.9121 13.2021C18.7815 13.301 18.6779 13.4302 18.6094 13.5771L18.5527 13.7305L16.2031 22.0908L16.168 22.1963C16.084 22.416 15.9392 22.6081 15.75 22.75C15.5336 22.9123 15.2705 23 15 23C14.7295 23 14.4664 22.9123 14.25 22.75C14.0608 22.6081 13.916 22.416 13.832 22.1963L13.7969 22.0908L8.99902 5.02148L7.37305 10.8105C7.19669 11.4391 6.81945 11.9925 6.2998 12.3877C5.78012 12.7828 5.14601 12.9981 4.49316 13H2C1.44772 13 1 12.5523 1 12C1 11.4477 1.44772 11 2 11H4.4873C4.70491 10.9993 4.91663 10.9276 5.08984 10.7959C5.26298 10.6642 5.38852 10.479 5.44727 10.2695L7.79688 1.90918L7.83203 1.80371C7.91597 1.58404 8.06078 1.39192 8.25 1.25C8.46637 1.08772 8.72954 1 9 1Z"
+                                    fill="currentColor"></path>
+                            </svg><span class="SubNavbar_tabLabel__uZ1eN">Live</span></a><a data-test-id="tabs-Casino"
+                            class="SubNavbar_tabItem__u_R30 text-xs bold" href="https://www.betpawa.co.tz/casino"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24"
+                                fill="none" class="_icon_108qn_1" data-test-id="auto-sub-navbar-tab-item-pawablox-icon">
+                                <path
+                                    d="M11 17C11 15.8989 10.4976 14.9773 9.86523 14.5352C9.55921 14.3213 9.22702 14.2189 8.88379 14.2354C8.54058 14.2518 8.11266 14.3911 7.625 14.7812C7.25978 15.0734 6.74022 15.0734 6.375 14.7812C5.88734 14.3911 5.45942 14.2518 5.11621 14.2354C4.77298 14.2189 4.44079 14.3213 4.13477 14.5352C3.50238 14.9773 3 15.8989 3 17C3 18.0609 3.42173 19.078 4.17188 19.8281C4.92202 20.5783 5.93913 21 7 21C8.06087 21 9.07798 20.5783 9.82812 19.8281C10.5783 19.078 11 18.0609 11 17ZM12.4404 4.65625C12.1667 5.83993 11.8291 7.15179 11.3877 8.44922C10.9431 9.75587 10.3788 11.0935 9.6416 12.3037C10.1406 12.4044 10.6023 12.6109 11.0098 12.8955C11.3881 13.1598 11.7206 13.4899 12 13.8682C12.2794 13.4899 12.6119 13.1598 12.9902 12.8955C13.6217 12.4544 14.3834 12.1985 15.2119 12.2383C15.3775 12.2462 15.5424 12.2687 15.707 12.2998C15.6399 12.0462 15.5628 11.7776 15.4736 11.4961C15.1462 10.4622 14.6939 9.3149 14.1865 8.17383C13.6274 6.91646 13.0106 5.69164 12.4404 4.65625ZM13.999 3.21387C15.0005 4.61136 15.9974 5.67681 17.0518 6.44238C18.1362 7.22963 19.3063 7.71796 20.6562 7.9082C20.5838 7.76872 20.4995 7.61985 20.3994 7.46387C19.9712 6.79678 19.3298 6.07091 18.5088 5.40039C17.3036 4.41624 15.7553 3.5877 13.999 3.21387ZM13 17C13 18.0609 13.4217 19.078 14.1719 19.8281C14.922 20.5783 15.9391 21 17 21C18.0609 21 19.078 20.5783 19.8281 19.8281C20.5783 19.078 21 18.0609 21 17C21 15.8989 20.4976 14.9773 19.8652 14.5352C19.5592 14.3213 19.227 14.2189 18.8838 14.2354C18.5406 14.2518 18.1127 14.3911 17.625 14.7812C17.2598 15.0734 16.7402 15.0734 16.375 14.7812C15.8873 14.3911 15.4594 14.2518 15.1162 14.2354C14.773 14.2189 14.4408 14.3213 14.1348 14.5352C13.5024 14.9773 13 15.8989 13 17ZM23 17C23 18.5913 22.3674 20.117 21.2422 21.2422C20.117 22.3674 18.5913 23 17 23C15.4087 23 13.883 22.3674 12.7578 21.2422C12.473 20.9573 12.2194 20.6472 12 20.3164C11.7806 20.6472 11.527 20.9573 11.2422 21.2422C10.117 22.3674 8.5913 23 7 23C5.4087 23 3.88303 22.3674 2.75781 21.2422C1.63259 20.117 1 18.5913 1 17C1 15.3414 1.74786 13.7635 2.99023 12.8955C3.62165 12.4544 4.38338 12.1985 5.21191 12.2383C5.77199 12.2652 6.32769 12.4275 6.86523 12.7168C8.00729 11.4473 8.85114 9.69539 9.49414 7.80566C10.23 5.6429 10.6623 3.4392 11.0234 1.78613L11.0449 1.70215C11.1739 1.28769 11.5593 1 12 1C15.1292 1 17.8459 2.2775 19.7734 3.85156C20.7386 4.63974 21.5275 5.51901 22.082 6.38281C22.622 7.22399 23 8.14488 23 9C23 9.55228 22.5523 10 22 10C19.916 10 18.1127 9.49134 16.4863 8.47168C16.8257 9.29583 17.134 10.1161 17.3799 10.8926C17.5455 11.4156 17.6869 11.9337 17.7939 12.4287C18.1221 12.3189 18.4543 12.2543 18.7881 12.2383C19.6166 12.1985 20.3783 12.4544 21.0098 12.8955C22.2521 13.7635 23 15.3414 23 17Z"
+                                    fill="currentColor"></path>
+                            </svg><span class="SubNavbar_tabLabel__uZ1eN">Casino</span></a><a
+                            data-test-id="tabs-Virtual Sports" class="SubNavbar_tabItem__u_R30 text-xs bold"
+                            href="https://www.betpawa.co.tz/virtual-lobby"><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"
+                                viewBox="0 0 24 24" fill="none" class="_icon_108qn_1"
+                                data-test-id="auto-sub-navbar-tab-item-pawablox-icon">
+                                <path
+                                    d="M8.5957 2C9.14777 2.00026 9.5957 2.44788 9.5957 3C9.5957 3.55212 9.14777 3.99974 8.5957 4H4C3.73478 4 3.4805 4.10543 3.29297 4.29297C3.10543 4.4805 3 4.73478 3 5V15C3 15.2652 3.10543 15.5195 3.29297 15.707C3.48051 15.8946 3.73478 16 4 16H20C20.2652 16 20.5195 15.8946 20.707 15.707C20.8946 15.5195 21 15.2652 21 15V12.7012C21 12.1489 21.4477 11.7012 22 11.7012C22.5523 11.7012 23 12.1489 23 12.7012V15C23 15.7956 22.6837 16.5585 22.1211 17.1211C21.5585 17.6837 20.7957 18 20 18H13V20H16C16.5523 20 17 20.4477 17 21C17 21.5523 16.5523 22 16 22H8C7.44772 22 7 21.5523 7 21C7 20.4477 7.44772 20 8 20H11V18H4C3.20435 18 2.44151 17.6837 1.87891 17.1211C1.3163 16.5585 1 15.7956 1 15V5C1 4.20435 1.3163 3.44152 1.87891 2.87891C2.44152 2.3163 3.20435 2 4 2H8.5957ZM16.5312 0.618164C18.9712 0.618557 21.0426 2.18902 21.7979 4.37402C21.8038 4.3896 21.8085 4.40576 21.8135 4.42188C22.0009 4.9806 22.1045 5.57836 22.1045 6.2002C22.1044 9.28143 19.6103 11.7817 16.5312 11.7822C13.4518 11.7822 10.9571 9.28173 10.957 6.2002C10.957 3.14912 13.4021 0.669954 16.4395 0.621094C16.4536 0.620268 16.4681 0.618166 16.4824 0.618164C16.4871 0.618213 16.4924 0.619051 16.4971 0.619141C16.5082 0.619054 16.5202 0.618164 16.5312 0.618164ZM15.0859 9.40137C14.9811 9.54878 14.862 9.70887 14.7441 9.86816C15.2837 10.1325 15.8904 10.2822 16.5312 10.2822C17.1481 10.2821 17.7327 10.1426 18.2568 9.89648C18.1277 9.72874 18.0004 9.55978 17.8896 9.40723C17.7973 9.28008 17.7117 9.15808 17.6367 9.05176C16.9734 9.14716 16.3476 9.14083 15.8652 9.10449C15.6638 9.0893 15.4839 9.06729 15.333 9.04688C15.2593 9.15271 15.1759 9.27476 15.0859 9.40137ZM19.9902 5.75488C19.8559 5.80445 19.7289 5.85389 19.6172 5.89746C19.5467 6.66573 19.3336 7.30363 19.1172 7.77148C19.0382 7.94212 18.9559 8.08981 18.8828 8.21582C18.9495 8.31017 19.024 8.41583 19.1035 8.52539C19.2264 8.69467 19.3545 8.86449 19.4746 9.01953C20.1737 8.28687 20.6045 7.29442 20.6045 6.2002C20.6045 5.98191 20.5866 5.76757 20.5537 5.55859C20.374 5.61681 20.1808 5.68457 19.9902 5.75488ZM12.5088 5.55078C12.4751 5.76224 12.457 5.97918 12.457 6.2002C12.4571 7.27065 12.8687 8.24393 13.541 8.97168C13.6458 8.82989 13.7577 8.6807 13.8633 8.53223C13.9395 8.42503 14.0104 8.32039 14.0752 8.22754C13.7298 7.64748 13.5478 7.02319 13.4502 6.53418C13.4014 6.28991 13.3723 6.06817 13.3535 5.88672C13.2494 5.84276 13.131 5.79269 13.0059 5.74219C12.8396 5.67511 12.6696 5.6098 12.5088 5.55078ZM16.4863 4.47266C16.3614 4.53825 16.2041 4.6248 16.0303 4.73145C15.6518 4.96365 15.2137 5.27727 14.8379 5.65527C14.8515 5.80868 14.8754 6.01225 14.9209 6.24023C15.0084 6.67831 15.1627 7.15373 15.415 7.54297C15.5578 7.56483 15.7512 7.59126 15.9785 7.6084C16.4221 7.6418 16.9754 7.64407 17.5332 7.55176C17.5966 7.44938 17.677 7.31204 17.7559 7.1416C17.9226 6.78124 18.0874 6.28576 18.1318 5.68848C18.0313 5.59067 17.9002 5.46768 17.7422 5.33203C17.4166 5.0525 16.9863 4.73074 16.4863 4.47266ZM17.2324 3.16992C17.8447 3.49348 18.3523 3.8779 18.7197 4.19336C18.8514 4.3064 18.9666 4.41234 19.0635 4.50391C19.1846 4.45663 19.3231 4.40212 19.4707 4.34766C19.6457 4.28311 19.8458 4.21227 20.0498 4.14551C19.4559 3.12646 18.4347 2.38907 17.2324 2.17969V3.16992ZM15.7324 2.19629C14.5743 2.42688 13.5932 3.15023 13.0146 4.13867C13.2086 4.20962 13.3997 4.28292 13.5674 4.35059C13.6823 4.39695 13.7911 4.44398 13.8896 4.48535C14.3496 4.04552 14.845 3.69925 15.2461 3.45312C15.4268 3.34224 15.5929 3.24935 15.7324 3.1748V2.19629Z"
+                                    fill="currentColor"></path>
+                            </svg><span class="SubNavbar_tabLabel__uZ1eN">Virtuals</span></a>
+                        <div class="SubNavbar_tabItem__u_R30 SubNavbar_extendItem__KGWUs showOnMobile"
+                            data-test-id="tabs-extended-menu"><svg xmlns="http://www.w3.org/2000/svg" width="16px"
+                                height="16px" viewBox="0 0 24 24" fill="none" class="_icon_108qn_1"
+                                data-test-id="auto-sub-navbar-icon-chevron-down">
+                                <path
+                                    d="M17.293 9.29295C17.6835 8.90243 18.3166 8.90243 18.7071 9.29295C19.0976 9.68348 19.0976 10.3165 18.7071 10.707L12.7071 16.707C12.3166 17.0975 11.6835 17.0975 11.293 16.707L5.29302 10.707C4.90249 10.3165 4.90249 9.68348 5.29302 9.29295C5.68354 8.90243 6.31655 8.90243 6.70708 9.29295L12 14.5859L17.293 9.29295Z"
+                                    fill="currentColor"></path>
+                            </svg></div>
+                    </nav>
+                </div>
+            </div>
+            <div class="Sidebar_container__NILrc Sidebar_leftContainer__z_JgY Sidebar_closed__cc0lb">
+                <div class="Sidebar_content__X3DIt Sidebar_leftContent__DLGgj LeftMenuSideBar_sidebar__UodXh"
+                    style="transform: translateX(-110%);"></div>
+            </div>
+            <div id="page-content-container" class="PageContainer_container__mNKzK">
+                <section class="PageContainer_leftColumn__1SvBX">
+                    <div class="ScrollableWrapper_container__U3Z_d" id="scrollable-wrapper" tabindex="-1">
+                        <div class="ScrollableWrapper_content__stSNb">
+                            <div class="ScrollableWrapper_children__NuR1z">
+                                <div class="_sectionHeader_2p6tp_1 _sizeDefault_2p6tp_9"
+                                    data-test-id="auto-betslip-share-page-header-section-header">
+                                    <div class="_body_2p6tp_18">
+                                        <div class="_left_2p6tp_25"><span class="_icon_2p6tp_40"><a
+                                                    data-test-id="auto-betslip-share-page-header-cf-link"
+                                                    href="https://www.betpawa.co.tz"><button type="button" aria-label="Back"
+                                                        class="_iconButton_13bza_1 _tertiary_13bza_95 _sm_13bza_26 _square_13bza_41"
+                                                        tabindex="-1"
+                                                        data-test-id="auto-betslip-share-page-header-icon-button"><span
+                                                            class="_icon_13bza_1"><svg
+                                                                xmlns="http://www.w3.org/2000/svg" width="20px"
+                                                                height="20px" viewBox="0 0 24 24" fill="none"
+                                                                class="_icon_108qn_1"
+                                                                data-test-id="auto-betslip-share-page-header-icon-chevron-left">
+                                                                <path
+                                                                    d="M13.293 5.29295C13.6835 4.90243 14.3166 4.90243 14.7071 5.29295C15.0976 5.68348 15.0976 6.31649 14.7071 6.70702L9.41411 12L14.7071 17.293C15.0976 17.6835 15.0976 18.3165 14.7071 18.707C14.3166 19.0975 13.6835 19.0975 13.293 18.707L7.29302 12.707C6.90249 12.3165 6.90249 11.6835 7.29302 11.293L13.293 5.29295Z"
+                                                                    fill="currentColor"></path>
+                                                            </svg></span></button></a></span>
+                                                            <span
+                                                class="_heading_2p6tp_50" id="bet_id_1">
+                                                <!-- <span data-test-id="bet-slip-id">Bet ID #1125456***</span> -->
+                                                </span></div>
+                                    </div>
+                                </div>
+                                <div class="ShareBetslipPage_page__PDV6h">
+                                    <article class="ShareBetslipPage_card__tZ773">
+                                        <div class="BetSlipWinBanner_container__Etlup"
+                                            data-test-id="bet-slip-win-banner">
+                                            <div class="BetSlipWinBanner_bannerBg__6hNZJ"><img
+                                                    alt="Winning is your game!" loading="lazy" decoding="async"
+                                                    data-nimg="fill"
+                                                    src="https://www.betpawa.co.tz/strapi/media/Property_1_Bronze_confetti_b5028c1425.webp"
+                                                    style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
+                                            </div>
+                                            <div class="BetSlipWinBanner_trophy__Bhb54"><img alt="Winning is your game!"
+                                                    loading="lazy" decoding="async" data-nimg="fill"
+                                                    src="https://www.betpawa.co.tz/strapi/media/main_trophy_bronze_b8a77b5e1a.webp"
+                                                    style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
+                                            </div>
+                                            <div class="BetSlipWinBanner_content__pPMs0" id="winning-big-container_1">
+                                                
+                                                <!-- <span class="text-sm"
+                                                    data-test-id="bet-slip-win-banner-title">Congratulations
+                                                    on</span>
+                                                    
+                                                    <span class="BetSlipWinBanner_winner__WiX4z text-base bold"
+                                                    data-test-id="bet-slip-win-banner-amount">Winning TSH 250.23</span> -->
+                                            </div>
+                                        </div>
+                                        <div class="BetslipSummary_header__Hu9_R">
+                                            <div class="BetslipSummary_titleGroup__rEBuX"><span
+                                                    class="BetslipSummary_title__YoZOS text-sm bold">Multibet</span><span
+                                                    class="_badgeNumber_xwcha_58 _outline_xwcha_101 _sizeDefault_xwcha_27"
+                                                    data-test-id="auto-betslip-summary-badge-1"><span
+                                                        class="_count_xwcha_151">2</span></span></div>
+                                            <div class="BetslipSummary_statusGroup__lErvO"><span
+                                                    class="BetslipSummary_miniTrophy__fK5Ku" aria-hidden="true"><img
+                                                        alt="" loading="lazy" decoding="async" data-nimg="fill"
+                                                        src="https://www.betpawa.co.tz/strapi/media/main_trophy_bronze_b8a77b5e1a.webp"
+                                                        style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;"></span>
+                                                <div data-test-id="betslip-settled-status-WON"><span
+                                                        class="_badge_xwcha_1 _default_xwcha_91 _sizeDefault_xwcha_27"
+                                                        data-test-id="auto-betslip-summary-badge-2"><span
+                                                            class="_label_xwcha_146">Won</span></span></div>
+                                            </div>
+                                        </div>
+                                        <div class="BetslipSummary_statusLine__WUdiR"><span
+                                                class="_badge_xwcha_1 _outline_xwcha_101 _sizeDefault_xwcha_27 BetslipSummary_statusBadgeWon__RT0eR"
+                                                data-test-id="won-selections-badge"><span class="_icon_xwcha_137"><span
+                                                        class="StatusIndicator_dot__TZhaG StatusIndicator_dotWon__7egmf"
+                                                        data-test-id="bet-result-won"></span></span><span
+                                                    class="_label_xwcha_146">2</span></span></div>
+
+                                        <div class="BetslipSummary_payoutBox__6BggX" id="bet-win-container_1">
+
+                                           <!-- All bet winn Container ....  -->
+
+                                        </div>
+
+                                        <div class="BetslipSelection_list__F6gcC" id="match_container_1" >
+                                           
+                                            <!-- All bet selections Container ....  -->
+
+
+                                        </div>
+                                        <div class="BetslipLegend_container__gnYmA">
+                                            <p class="BetslipLegend_placedAt___5D9i text-sm" id="bet_place_at_1">
+                                               <!-- bet placed at 2024-06-05 12:30:00 -->
+                                            </p>
+                                            <div class="BetslipLegend_legend__TI8tc text-sm"><span
+                                                    class="BetslipLegend_legendItem__ODyjl"><span
+                                                        class="StatusIndicator_dot__TZhaG"
+                                                        data-test-id="bet-result-pending"></span><span>Pending</span></span><span
+                                                    class="BetslipLegend_legendItem__ODyjl"><span
+                                                        class="StatusIndicator_dot__TZhaG StatusIndicator_dotWon__7egmf"
+                                                        data-test-id="bet-result-won"></span><span>Won</span></span><span
+                                                    class="BetslipLegend_legendItem__ODyjl"><span
+                                                        class="StatusIndicator_dot__TZhaG StatusIndicator_dotLost___Yl1m"
+                                                        data-test-id="bet-result-lost"></span><span>Lost</span></span><span
+                                                    class="BetslipLegend_legendItem__ODyjl"><span
+                                                        class="StatusIndicator_dot__TZhaG StatusIndicator_dotVoid__UYMvf"
+                                                        data-test-id="bet-result-void"></span><span>Void</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="BetslipRegulatoryMessage_root__xUnE3 text-sm">All bets are accepted
+                                            and settled in accordance with our <a class="link bold"
+                                                data-test-id="auto-betslip-regulatory-message-cf-link-1"
+                                                href="https://www.betpawa.co.tz/terms">Terms and Conditions</a> and <a class="link bold"
+                                                data-test-id="auto-betslip-regulatory-message-cf-link-2"
+                                                href="https://www.betpawa.co.tz/rules">Rules</a>.</div>
+                                    </article>
+                                </div>
+                            </div>
+                            <footer data-test-id="footer" class="Footer_footer__OYoYH">
+                                <div class="FooterHeader_container__xi7EL"><a class="Logo_logoLink__52ybI"
+                                        data-test-id="footer-logo" href="https://www.betpawa.co.tz"><svg viewBox="0 0 112 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M53.1182 0.500101H43.5725L40.1135 19.4618H45.9589L46.9778 13.2833H52.5819C59.1244 13.2833 59.4194 7.10475 59.4194 7.10475C60.0629 0.393575 53.1182 0.500101 53.1182 0.500101ZM53.9226 6.59875C53.8421 8.78254 50.8658 8.75591 50.8658 8.75591H47.7286L48.399 4.94758H51.8311C54.0298 4.97422 53.9226 6.59875 53.9226 6.59875Z"
+                                                fill="#9CE800"></path>
+                                            <path
+                                                d="M12.5222 4.86796C12.5222 4.86796 9.49229 4.78806 7.96391 6.54575L9.09009 0.500366H3.35196L0.000244141 19.1425H5.63112L5.84563 17.4914C5.84563 17.4914 7.58852 19.5953 10.1894 19.4355C10.1894 19.4355 17.3755 19.542 17.4023 10.5139C17.3755 10.5405 17.7241 4.84133 12.5222 4.86796ZM11.7178 12.1118C11.5838 14.2157 10.1626 15.3076 8.82195 15.3076C7.48127 15.3076 6.5696 14.1358 6.81092 12.2716C7.05225 10.2475 8.39293 8.80944 9.8945 8.91597C12.2273 9.04913 11.7178 12.1118 11.7178 12.1118Z"
+                                                fill="white"></path>
+                                            <path
+                                                d="M31.4797 9.44793C31.4797 13.4427 25.688 14.0019 22.229 13.9753C22.2022 13.9753 22.3631 14.5079 22.3899 14.5346C22.7653 15.2536 23.7038 15.4933 24.4545 15.5199C25.4466 15.5466 26.4656 15.3602 27.3772 15.0139C27.8599 14.8275 28.2889 14.5612 28.7179 14.2416L30.3535 16.9314C30.4072 17.0113 29.2274 17.7836 29.1737 17.8369C28.2353 18.4228 27.1895 18.8489 26.117 19.0886C24.0255 19.568 21.5318 19.6745 19.5208 18.7956C18.1265 18.1831 17.188 17.038 16.759 15.5732C16.5177 14.721 16.4373 13.8422 16.4373 12.9899C16.4373 8.99519 19.2795 5.13361 25.3126 5.13361C29.0129 5.16024 31.4797 6.54508 31.4797 9.44793ZM24.9908 8.38267C23.2211 8.38267 22.0681 9.74088 21.9609 11.6317C23.8646 11.5518 26.3851 10.8594 26.3851 9.5012C26.3583 8.80877 25.8488 8.38267 24.9908 8.38267Z"
+                                                fill="white"></path>
+                                            <path
+                                                d="M39.1746 0.5H34.509L33.651 5.18717H31.4791L30.7551 8.9156H32.9538L32.069 15.467C32.069 15.467 31.5595 19.4085 35.4743 19.4617C39.3891 19.515 41.427 17.3312 41.427 17.3312L39.6573 14.3751C39.6573 14.3751 37.244 15.2273 37.2977 13.7093C37.3513 12.1913 37.8876 8.9156 37.8876 8.9156L41.0784 8.88897L41.7487 5.13391H38.3166L39.1746 0.5Z"
+                                                fill="white"></path>
+                                            <path
+                                                d="M80.1462 5.34692H74.3008L76.285 19.4617H81.326L85.0799 12.4043L85.8038 19.4617H90.8984L98.0041 5.34692H91.8369L89.2092 12.8304L88.3511 5.34692H84.0341L80.5484 13.15L80.1462 5.34692Z"
+                                                fill="#9CE800"></path>
+                                            <path
+                                                d="M69.3948 5.34686L69.1535 6.65181C69.1535 6.65181 67.1961 5.02728 64.4611 5.02728C61.7261 5.02728 57.57 7.23771 57.5968 13.5494C57.5968 16.9583 58.9643 19.7013 63.1472 19.4883C63.1472 19.4883 65.3996 19.5149 66.9816 18.0502L66.7135 19.435H72.0762L74.7576 5.34686H69.3948ZM65.2923 15.1739C63.9785 15.2538 63.04 14.1353 62.9327 12.9102C62.7987 11.2058 64.193 9.26171 65.9895 9.12856C67.3838 9.02203 68.215 9.74108 68.51 10.0873L67.7592 14.082C67.062 14.6946 66.1772 15.1207 65.2923 15.1739Z"
+                                                fill="#9CE800"></path>
+                                            <path
+                                                d="M106.637 5.34686L106.396 6.65181C106.396 6.65181 104.438 5.02728 101.703 5.02728C98.9683 5.02728 94.8122 7.23771 94.839 13.5494C94.839 16.9583 96.2065 19.7013 100.389 19.4883C100.389 19.4883 102.642 19.5149 104.224 18.0502L103.956 19.435H109.318L112 5.34686H106.637ZM102.535 15.1739C101.221 15.2538 100.282 14.1353 100.175 12.9102C100.041 11.2058 101.435 9.26171 103.232 9.12856C104.626 9.02203 105.457 9.74108 105.752 10.0873L105.001 14.082C104.304 14.6946 103.393 15.1207 102.535 15.1739Z"
+                                                fill="#9CE800"></path>
+                                        </svg></a><button type="button" data-test-id="footer-change-jurisdiction"
+                                        class="_button_1od8m_1 _inverse_1od8m_135 _sm_1od8m_34 _round_1od8m_59"><span
+                                            class="_icon_1od8m_178"><svg xmlns="http://www.w3.org/2000/svg" width="16px"
+                                                height="16px" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid slice"
+                                                class="_flag_vs0gv_1 _circle_vs0gv_16">
+                                                <g clip-path="url(#tz-clip0_3228_8330)">
+                                                    <rect width="36" height="36" rx="18" fill="#027FFF"></rect>
+                                                    <path d="M36 0L0 36V0H36Z" fill="#02833D"></path>
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M36 0.05V5.09L5.09 36H0V30.91L30.91 0H35.95L36 0.05Z"
+                                                        fill="black"></path>
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M27.85 0L0 27.85V30.91L30.91 0H27.85ZM5.09 36H8.15L36 8.15V5.09L5.09 36ZM35.95 0L36 0.05V0H35.95Z"
+                                                        fill="#FEDE02"></path>
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="tz-clip0_3228_8330">
+                                                        <rect width="36" height="36" rx="18" fill="white"></rect>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg></span><span
+                                            class="_title_1od8m_194 FooterHeader_countryName__rDU7K">Tanzania</span><span
+                                            class="_icon_1od8m_178"><svg xmlns="http://www.w3.org/2000/svg" width="12px"
+                                                height="12px" viewBox="0 0 24 24" fill="none" class="_icon_108qn_1"
+                                                data-test-id="auto-footer-header-icon-chevron-right">
+                                                <path
+                                                    d="M9.29302 5.29295C9.68354 4.90243 10.3166 4.90243 10.7071 5.29295L16.7071 11.293C17.0976 11.6835 17.0976 12.3165 16.7071 12.707L10.7071 18.707C10.3166 19.0975 9.68354 19.0975 9.29302 18.707C8.90249 18.3165 8.90249 17.6835 9.29302 17.293L14.586 12L9.29302 6.70702C8.90249 6.31649 8.90249 5.68348 9.29302 5.29295Z"
+                                                    fill="currentColor"></path>
+                                            </svg></span></button></div>
+                                <div class="FooterPartners_container___HYU8">
+                                    <div class="FooterPartners_titleRow__l9cQp"><span
+                                            class="FooterPartners_line__jWWcj"></span><span
+                                            class="FooterPartners_title__4vsFL text-sm">Official Partner</span><span
+                                            class="FooterPartners_line__jWWcj"></span></div>
+                                    <div class="FooterPartners_logos__EOrsm"><span
+                                            data-test-id="footer-partner-413"><img loading="lazy" width="0" height="64"
+                                                decoding="async" data-nimg="1" class="FooterPartners_logo__67_b3"
+                                                src="https://www.betpawa.co.tz/strapi/media/badge_tbf_55a00e5241.webp"
+                                                style="color: transparent;"></span></div>
+                                </div>
+                                <hr class="FooterDivider_divider__4ynVO">
+                                <div class="FooterNavigation_container__PhmnR">
+                                    <div class="FooterNavigation_group__SbsGo">
+                                        <h3 class="FooterNavigation_header__3A7_P text-xs bold">Sport</h3>
+                                        <ul class="FooterNavigation_list__1HoaR">
+                                            <li data-test-id="auto-footer-navigation-li"><a
+                                                    class="FooterNavigation_link__517cE text-xs"
+                                                    data-test-id="auto-footer-navigation-cf-link"
+                                                    href="https://www.betpawa.co.tz/events?categoryId=2">Football</a></li>
+                                            <li data-test-id="auto-footer-navigation-li"><a
+                                                    class="FooterNavigation_link__517cE text-xs"
+                                                    data-test-id="auto-footer-navigation-cf-link"
+                                                    href="https://www.betpawa.co.tz/events?categoryId=3">Basketball</a></li>
+                                            <li data-test-id="auto-footer-navigation-li"><a
+                                                    class="FooterNavigation_link__517cE text-xs"
+                                                    data-test-id="auto-footer-navigation-cf-link"
+                                                    href="https://www.betpawa.co.tz/events?categoryId=101">eFootball</a></li>
+                                            <li data-test-id="auto-footer-navigation-li"><a
+                                                    class="FooterNavigation_link__517cE text-xs"
+                                                    data-test-id="auto-footer-navigation-cf-link"
+                                                    href="https://www.betpawa.co.tz/events?categoryId=452">Tennis</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="FooterNavigation_group__SbsGo">
+                                        <h3 class="FooterNavigation_header__3A7_P text-xs bold">Help Center</h3>
+                                        <ul class="FooterNavigation_list__1HoaR">
+                                            <li data-test-id="auto-footer-navigation-li"><a target="_self"
+                                                    class="FooterNavigation_link__517cE text-xs"
+                                                    data-test-id="auto-footer-navigation-cf-link"
+                                                    href="https://www.betpawa.co.tz/deposit">Deposit</a></li>
+                                            <li data-test-id="auto-footer-navigation-li"><a target="_self"
+                                                    class="FooterNavigation_link__517cE text-xs"
+                                                    data-test-id="auto-footer-navigation-cf-link"
+                                                    href="https://www.betpawa.co.tz/rules">Rules</a></li>
+                                            <li data-test-id="auto-footer-navigation-li"><a target="_self"
+                                                    class="FooterNavigation_link__517cE text-xs"
+                                                    data-test-id="auto-footer-navigation-cf-link" href="https://www.betpawa.co.tz/help">Help</a>
+                                            </li>
+                                            <li data-test-id="auto-footer-navigation-li"><a target="_self"
+                                                    class="FooterNavigation_link__517cE text-xs"
+                                                    data-test-id="auto-footer-navigation-cf-link"
+                                                    href="https://www.betpawa.co.tz/privacy-policy">Privacy Policy</a></li>
+                                            <li data-test-id="auto-footer-navigation-li"><a target="_self"
+                                                    class="FooterNavigation_link__517cE text-xs"
+                                                    data-test-id="auto-footer-navigation-cf-link"
+                                                    href="https://www.betpawa.co.tz/cookies-policy">Cookies Policy</a></li>
+                                            <li data-test-id="auto-footer-navigation-li"><a target="_self"
+                                                    class="FooterNavigation_link__517cE text-xs"
+                                                    data-test-id="auto-footer-navigation-cf-link"
+                                                    href="https://www.betpawa.co.tz/responsible-gambling">Responsible Gambling</a></li>
+                                            <li data-test-id="auto-footer-navigation-li"><a target="_self"
+                                                    class="FooterNavigation_link__517cE text-xs"
+                                                    data-test-id="auto-footer-navigation-cf-link"
+                                                    href="https://www.betpawa.co.tz/about">About</a></li>
+                                            <li data-test-id="auto-footer-navigation-li"><a target="_self"
+                                                    class="FooterNavigation_link__517cE text-xs"
+                                                    data-test-id="auto-footer-navigation-cf-link"
+                                                    href="https://www.betpawa.co.tz/terms">Terms</a></li>
+                                            <li data-test-id="auto-footer-navigation-li"><a target="_self"
+                                                    class="FooterNavigation_link__517cE text-xs"
+                                                    data-test-id="auto-footer-navigation-cf-link" href="https://www.betpawa.co.tz/news">News</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <hr class="FooterDivider_divider__4ynVO">
+                                <div class="Footer_engagementRow__Iw1MY">
+                                    <div class="FooterSocial_column___0uMQ"><span
+                                            class="FooterSocial_label__Z517L text-xs bold">Stay up to date</span>
+                                        <div class="FooterSocial_icons__UsdFG"><a
+                                                href="https://www.facebook.com/betpawa.co.tz"
+                                                data-test-id="auto-footer-social-cf-link" rel="noopener noreferrer"
+                                                class="FooterSocial_socialLink__MhK59"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                                                    viewBox="0 0 24 24" fill="none" class="_icon_108qn_1"
+                                                    data-test-id="auto-footer-social-icon-facebook">
+                                                    <path
+                                                        d="M12.5 7C12.5 6.46957 12.7109 5.96101 13.0859 5.58594C13.461 5.21087 13.9696 5 14.5 5H16.5V3H14.5C13.4391 3 12.422 3.42173 11.6719 4.17188C10.9217 4.92202 10.5 5.93913 10.5 7V10C10.5 10.5523 10.0523 11 9.5 11H7.5V13H9.5C10.0523 13 10.5 13.4477 10.5 14V21H12.5V14C12.5 13.4477 12.9477 13 13.5 13H15.7197L16.2197 11H13.5C12.9477 11 12.5 10.5523 12.5 10V7ZM14.5 9H17.5C17.8079 9 18.0986 9.14205 18.2881 9.38477C18.4775 9.62741 18.5443 9.94354 18.4697 10.2422L17.4697 14.2422C17.3584 14.6874 16.9589 15 16.5 15H14.5V22C14.5 22.5523 14.0523 23 13.5 23H9.5C8.94772 23 8.5 22.5523 8.5 22V15H6.5C5.94772 15 5.5 14.5523 5.5 14V10C5.5 9.44772 5.94772 9 6.5 9H8.5V7C8.5 5.4087 9.13259 3.88303 10.2578 2.75781C11.383 1.63259 12.9087 1 14.5 1H17.5C18.0523 1 18.5 1.44772 18.5 2V6C18.5 6.55228 18.0523 7 17.5 7H14.5V9Z"
+                                                        fill="currentColor"></path>
+                                                </svg></a><a href="https://twitter.com/betpawatz"
+                                                data-test-id="auto-footer-social-cf-link" rel="noopener noreferrer"
+                                                class="FooterSocial_socialLink__MhK59"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                                                    viewBox="0 0 24 24" fill="none" class="_icon_108qn_1"
+                                                    data-test-id="auto-footer-social-icon-twitter">
+                                                    <path
+                                                        d="M7.55564 1L7.67478 1.00684C7.9501 1.03987 8.20166 1.18644 8.36619 1.41406L13.7353 8.84961L21.2929 1.29297C21.6835 0.902445 22.3165 0.902445 22.707 1.29297C23.0975 1.68349 23.0975 2.31651 22.707 2.70703L14.9218 10.4912L22.8105 21.4141C23.0303 21.7184 23.0614 22.1208 22.8906 22.4551C22.7196 22.7894 22.3755 23 22 23H16.4443C16.1234 23 15.8218 22.846 15.6338 22.5859L10.2636 15.1494L2.70701 22.707C2.31648 23.0976 1.68347 23.0976 1.29294 22.707C0.902419 22.3165 0.902419 21.6835 1.29294 21.293L9.07712 13.5078L1.18943 2.58594C0.969612 2.28158 0.938529 1.87923 1.10935 1.54492C1.28031 1.21056 1.62445 1 1.99997 1H7.55564ZM16.956 21H20.0439L7.04392 3H3.95603L16.956 21Z"
+                                                        fill="currentColor"></path>
+                                                </svg></a><a href="https://www.instagram.com/betpawatanzania/"
+                                                data-test-id="auto-footer-social-cf-link" rel="noopener noreferrer"
+                                                class="FooterSocial_socialLink__MhK59"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                                                    viewBox="0 0 24 24" fill="none" class="_icon_108qn_1"
+                                                    data-test-id="auto-footer-social-icon-instagram">
+                                                    <path
+                                                        d="M21 12C21 9.61471 20.9982 7.92594 20.8262 6.64648C20.658 5.39602 20.3435 4.68729 19.8281 4.17188C19.3127 3.65647 18.6039 3.34199 17.3535 3.17383C16.0741 3.00181 14.3853 3 12 3C9.61471 3 7.92593 3.00181 6.64648 3.17383C5.39603 3.34199 4.68729 3.65646 4.17188 4.17188C3.65646 4.68729 3.34199 5.39603 3.17383 6.64648C3.00181 7.92593 3 9.61471 3 12C3 14.3853 3.00181 16.0741 3.17383 17.3535C3.34199 18.6039 3.65647 19.3127 4.17188 19.8281C4.68729 20.3435 5.39602 20.658 6.64648 20.8262C7.92594 20.9982 9.61471 21 12 21C14.3853 21 16.0741 20.9982 17.3535 20.8262C18.604 20.658 19.3127 20.3435 19.8281 19.8281C20.3435 19.3127 20.658 18.604 20.8262 17.3535C20.9982 16.0741 21 14.3853 21 12ZM15.7373 12C15.7373 9.9362 14.0638 8.2627 12 8.2627C9.9362 8.2627 8.2627 9.9362 8.2627 12C8.2627 14.0638 9.9362 15.7373 12 15.7373C14.0638 15.7373 15.7373 14.0638 15.7373 12ZM17.7979 5.21094C18.3501 5.21103 18.7979 5.65871 18.7979 6.21094C18.7976 6.76298 18.3499 7.21085 17.7979 7.21094H17.7881C17.236 7.21087 16.7883 6.76299 16.7881 6.21094C16.7881 5.6587 17.2359 5.21101 17.7881 5.21094H17.7979ZM17.7373 12C17.7373 15.1684 15.1684 17.7373 12 17.7373C8.83163 17.7373 6.2627 15.1684 6.2627 12C6.2627 8.83163 8.83163 6.2627 12 6.2627C15.1684 6.2627 17.7373 8.83163 17.7373 12ZM23 12C23 14.3285 23.0017 16.1755 22.8076 17.6191C22.6097 19.0914 22.1918 20.2932 21.2432 21.2422L21.2422 21.2432C20.2932 22.1918 19.0914 22.6097 17.6191 22.8076C16.1755 23.0017 14.3285 23 12 23C9.67146 23 7.82449 23.0017 6.38086 22.8076C4.90864 22.6097 3.70675 22.1918 2.75781 21.2432V21.2422C1.80883 20.2932 1.39035 19.0916 1.19238 17.6191C0.998337 16.1755 1 14.3285 1 12C1 9.67146 0.998339 7.82449 1.19238 6.38086C1.39035 4.9084 1.80881 3.70682 2.75781 2.75781C3.70682 1.80881 4.9084 1.39035 6.38086 1.19238C7.82449 0.998339 9.67146 1 12 1C14.3285 1 16.1755 0.998337 17.6191 1.19238C19.0916 1.39035 20.2932 1.80883 21.2422 2.75781H21.2432C22.1918 3.70675 22.6097 4.90864 22.8076 6.38086C23.0017 7.82449 23 9.67146 23 12Z"
+                                                        fill="currentColor"></path>
+                                                </svg></a></div>
+                                    </div>
+                                    <div class="FooterPaymentMethods_container__laTin"><span
+                                            class="FooterPaymentMethods_label__ae1B5 text-xs bold">Payment Method</span>
+                                        <div class="FooterPaymentMethods_logos__x4VNl"><a data-label="Airtel"
+                                                data-test-id="auto-footer-payment-method" href="https://www.betpawa.co.tz/deposit-airtel"><img
+                                                    alt="Airtel" loading="lazy" width="0" height="24" decoding="async"
+                                                    data-nimg="1" class="FooterPaymentMethods_logo__q0wWO"
+                                                    src="https://www.betpawa.co.tz/strapi/media/airtel_8883e48b06.svg"
+                                                    style="color: transparent;"></a><a data-label="Mixx by Yas"
+                                                data-test-id="auto-footer-payment-method"
+                                                href="https://www.betpawa.co.tz/deposit-mixx-by-yas"><img alt="Mixx by Yas" loading="lazy"
+                                                    width="0" height="24" decoding="async" data-nimg="1"
+                                                    class="FooterPaymentMethods_logo__q0wWO"
+                                                    src="https://www.betpawa.co.tz/strapi/media/Mixx_by_yas_2_f0893022e6.webp"
+                                                    style="color: transparent;"></a><a data-label="Vodacom"
+                                                data-test-id="auto-footer-payment-method" href="https://www.betpawa.co.tz/deposit-vodacom"><img
+                                                    alt="Vodacom" loading="lazy" width="0" height="24" decoding="async"
+                                                    data-nimg="1" class="FooterPaymentMethods_logo__q0wWO"
+                                                    src="https://www.betpawa.co.tz/strapi/media/Vodafone_Vodacom_b2d51cab80.svg"
+                                                    style="color: transparent;"></a><a data-label="Halo-Pesa"
+                                                data-test-id="auto-footer-payment-method" href="https://www.betpawa.co.tz/deposit-halo-pesa"><img
+                                                    alt="Halo-Pesa" loading="lazy" width="0" height="24"
+                                                    decoding="async" data-nimg="1"
+                                                    class="FooterPaymentMethods_logo__q0wWO"
+                                                    src="https://www.betpawa.co.tz/strapi/media/payment_providers_1_3f129e3136.svg"
+                                                    style="color: transparent;"></a></div>
+                                    </div>
+                                </div>
+                                <hr class="FooterDivider_divider__4ynVO">
+                                <div class="FooterLanguage_container__yR_td"><span
+                                        class="FooterLanguage_label__IrsZg text-xs bold">Change Language</span>
+                                    <div id="«r0»" role="tablist" data-test-id="auto-footer-language-segmented-control"
+                                        class="_container_dsnxu_1 _variant-inverse_dsnxu_16 _compact_dsnxu_28"><button
+                                            type="button" role="tab" aria-selected="true"
+                                            data-test-id="languageButton-en"
+                                            class="_segment_dsnxu_32 _selected_dsnxu_113"><span
+                                                class="_icon_dsnxu_151 _tabSelected_dsnxu_175"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16px" height="16px"
+                                                    viewBox="0 0 36 36" preserveAspectRatio="xMidYMid slice"
+                                                    class="_flag_vs0gv_1 _circle_vs0gv_16">
+                                                    <g clip-path="url(#gb-clip0_3431_1245)">
+                                                        <path d="M36 0H0V36H36V0Z" fill="#0701A1"></path>
+                                                        <path
+                                                            d="M16.37 19.38L16.31 19.44H16.3L15.35 20.39L15.34 20.38L0 5.04V3L9.23 12.24L11.39 14.4L13.55 16.56L16.37 19.38Z"
+                                                            fill="#F5F5F5"></path>
+                                                        <path
+                                                            d="M18.15 17.59L18.14 17.61L16.37 19.38L13.55 16.56L11.39 14.4L9.23 12.24L0 3V0H0.56L12.8 12.24L14.4 13.84L14.96 14.4L15.85 15.29L16.87 16.31L18.15 17.59Z"
+                                                            fill="#D90009"></path>
+                                                        <path
+                                                            d="M20.4496 15.3L19.4296 16.32L18.1496 17.59L16.8696 16.31L15.8496 15.29L14.9596 14.4L14.3996 13.84L12.7996 12.24L0.55957 0H5.13957L12.2396 7.09L18.1396 12.99L19.1596 14.01L19.4396 14.29L20.4496 15.3Z"
+                                                            fill="#F5F5F5"></path>
+                                                        <path
+                                                            d="M35.5396 36H30.9596L23.7596 28.8L21.5996 26.64L19.4396 24.48L16.5596 21.6L15.3496 20.39L16.2996 19.44H16.3096L17.6496 18.1L19.4096 19.87H19.4196L20.4296 20.88L21.1496 21.6L21.5996 22.05L23.3096 23.76L23.7596 24.21L35.5396 36Z"
+                                                            fill="#F5F5F5"></path>
+                                                        <path
+                                                            d="M36.0004 32.89V36H35.5404L23.7604 24.21L23.3104 23.76L21.6004 22.05L21.1504 21.6L20.4304 20.88L19.4204 19.87H19.4104L17.6504 18.1L19.4304 16.32L19.4404 16.33L19.6704 16.56L19.9204 16.81L22.2104 19.1L22.5504 19.44L24.7104 21.6L26.8704 23.76L36.0004 32.89Z"
+                                                            fill="#D90009"></path>
+                                                        <path
+                                                            d="M35.9997 30.86V32.89L26.8697 23.76L24.7097 21.6L22.5497 19.44L22.2097 19.1L19.9197 16.81L19.6697 16.56L19.4397 16.33L19.4297 16.32L20.4497 15.3L20.9397 15.79L21.5997 16.45L21.7097 16.56L26.7497 21.6L28.9097 23.76L35.9997 30.86Z"
+                                                            fill="#F5F5F5"></path>
+                                                        <path
+                                                            d="M35.9999 0.73999V5.31999L29.0699 12.24L26.9099 14.4L24.7499 16.56L23.2299 18.08L22.2099 19.1L21.8699 19.44L21.5999 19.71L20.9199 20.39L19.9699 19.44H19.9599L19.8999 19.38L18.6299 18.1L24.4899 12.24L35.9999 0.73999Z"
+                                                            fill="#F5F5F5"></path>
+                                                        <path
+                                                            d="M35.9996 0V0.74L24.4896 12.24L18.6296 18.1L18.1196 17.59L16.8496 16.32L16.8696 16.31L19.1596 14.01L33.1696 0H35.9996Z"
+                                                            fill="#D90009"></path>
+                                                        <path
+                                                            d="M33.1701 0L19.1601 14.01L16.8701 16.31L16.8501 16.32L16.5601 16.03L15.8301 15.3L15.8501 15.29L16.5601 14.57L19.4401 11.69L21.6001 9.53L23.7601 7.37L31.1401 0H33.1701Z"
+                                                            fill="#F5F5F5"></path>
+                                                        <path
+                                                            d="M20.9203 20.39L19.4403 21.87L18.1403 23.18L16.5603 24.75L12.2403 29.07L5.32027 36H3.28027L12.2403 27.05V27.04L14.4003 24.89V24.88L16.5603 22.73V22.72L19.4103 19.87H19.4203L19.4403 19.85V19.84L19.8403 19.44H19.8503L19.9003 19.38L19.9603 19.44H19.9703L20.9203 20.39Z"
+                                                            fill="#F5F5F5"></path>
+                                                        <path
+                                                            d="M19.9 19.38L19.85 19.44H19.84L19.44 19.84V19.85L19.42 19.87H19.41L16.56 22.72V22.73L14.4 24.88V24.89L12.24 27.04V27.05L3.28 36H0V35.72L11.95 23.76L12.24 23.47L14.11 21.6L14.4 21.31L15.34 20.38L16.27 19.44L16.35 19.36L18.12 17.59L18.63 18.1L19.9 19.38Z"
+                                                            fill="#D90009"></path>
+                                                        <path
+                                                            d="M18.12 17.59L16.35 19.36L16.27 19.44L15.34 20.38L14.4 21.31L14.11 21.6L12.24 23.47L11.95 23.76L0 35.72V31.14L7.37 23.76L11.69 19.44L13.05 18.09L14.06 17.07L15.83 15.3L16.56 16.03L16.85 16.32L18.12 17.59Z"
+                                                            fill="#F5F5F5"></path>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M36 13.4V22.6H22.6V36H13.4V22.6H0V13.4H13.4V0H22.6V13.4H36Z"
+                                                            fill="#D90009"></path>
+                                                        <path
+                                                            d="M12.4 0V12.4H0V14.4H14.4V0H12.4ZM21.6 21.6V36H23.6V23.6H36V21.6H21.6ZM0 21.6V23.6H12.4V36H14.4V21.6H0ZM23.6 12.4V0H21.6V14.4H36V12.4H23.6Z"
+                                                            fill="#F5F5F5"></path>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="gb-clip0_3431_1245">
+                                                            <rect width="36" height="36" rx="18" fill="white"></rect>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg></span><span class="_label_dsnxu_169">EN</span></button><button
+                                            type="button" role="tab" aria-selected="false"
+                                            data-test-id="languageButton-sw" class="_segment_dsnxu_32"><span
+                                                class="_icon_dsnxu_151"><svg xmlns="http://www.w3.org/2000/svg"
+                                                    width="16px" height="16px" viewBox="0 0 36 36"
+                                                    preserveAspectRatio="xMidYMid slice"
+                                                    class="_flag_vs0gv_1 _circle_vs0gv_16">
+                                                    <g clip-path="url(#tz-clip0_3228_8330)">
+                                                        <rect width="36" height="36" rx="18" fill="#027FFF"></rect>
+                                                        <path d="M36 0L0 36V0H36Z" fill="#02833D"></path>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M36 0.05V5.09L5.09 36H0V30.91L30.91 0H35.95L36 0.05Z"
+                                                            fill="black"></path>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M27.85 0L0 27.85V30.91L30.91 0H27.85ZM5.09 36H8.15L36 8.15V5.09L5.09 36ZM35.95 0L36 0.05V0H35.95Z"
+                                                            fill="#FEDE02"></path>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="tz-clip0_3228_8330">
+                                                            <rect width="36" height="36" rx="18" fill="white"></rect>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg></span><span class="_label_dsnxu_169">SW</span></button></div>
+                                </div>
+                                <hr class="FooterDivider_divider__4ynVO">
+                                <div class="FooterLegal_container__faVab text-xs">
+                                    <p style="text-align: left;"><span class="" style="font-size: 11px;">Your bets and
+                                            payouts are processed by Choplife Gaming Limited, which is licensed and
+                                            regulated by the Gaming Board of Tanzania.</span></p>
+                                    <p style="text-align: left;"><br></p>
+                                    <p style="text-align: left;"><span class="" style="font-size: 11px;">Licences No.
+                                            SBI000000039 and OCL000000024</span></p>
+                                    <p style="text-align: left;"><br></p>
+                                    <p style="text-align: left;"><span class="" style="font-size: 11px;">You have to be
+                                            18 years and above to bet.</span></p>
+                                    <p style="text-align: left;"><span class="" style="font-size: 11px;">Betting is
+                                            addictive and can be psychologically harmful.</span></p>
+                                    <p style="text-align: left;"><br></p>
+                                    <p style="text-align: left;"><br></p>
+                                </div>
+                            </footer>
+                        </div>
+                    </div><button type="button" data-test-id="auto-back-to-top-button-button"
+                        class="_button_1od8m_1 _secondary_1od8m_77 _sm_1od8m_34 _round_1od8m_59 BackToTopButton_button__24nwT BackToTopButton_hidden__fjBLL"><span
+                            class="_icon_1od8m_178"><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"
+                                viewBox="0 0 24 24" fill="none" class="_icon_108qn_1"
+                                data-test-id="auto-back-to-top-button-icon-chevron-up">
+                                <path
+                                    d="M11.3692 7.22462C11.762 6.90427 12.341 6.92686 12.7071 7.29298L18.7071 13.293C19.0976 13.6835 19.0976 14.3165 18.7071 14.707C18.3166 15.0976 17.6835 15.0976 17.293 14.707L12 9.41407L6.70708 14.707C6.31655 15.0976 5.68354 15.0976 5.29302 14.707C4.90249 14.3165 4.90249 13.6835 5.29302 13.293L11.293 7.29298L11.3692 7.22462Z"
+                                    fill="currentColor"></path>
+                            </svg></span><span class="_title_1od8m_194 BackToTopButton_title__SFa6Z">Back to
+                            top</span></button>
+                </section>
+                 <section class="PageContainer_rightColumn___Fy7G hideOnMobile">
+                    <div class="Bet_betContainer__AUXe9">
+                        <div class="BetslipHeader_container__1QeSw text-sm">
+                            <div class="flex-center gap-1" data-test-id="betslip-header-info">Not logged
+                                in<span>-</span><a class="link" data-test-id="auto-betslip-header-cf-link-2"
+                                    href="https://www.betpawa.co.tz/join-now">Join Now</a><span>or</span><a class="link"
+                                    data-test-id="auto-betslip-header-cf-link-3" href="https://www.betpawa.co.tz/login">Log In</a></div>
+                        </div>
+                        <div class="Bet_betScrollable__aUXG0">
+                            <div class="BetslipTabs_emptyWrapper__u6Rwt">
+                                <form class="BetBonus_betBonusContainer__PRiMc" data-test-id="auto-bet-bonus-form">
+                                    <div class="_input_1y5z1_1 _default_1y5z1_82 _fullWidth_1y5z1_14"><label
+                                            id="bookingCode-label" for="bookingCode" class="_label_1y5z1_18">Booking
+                                            Code</label>
+                                        <div class="_fieldWrapper_1y5z1_35"><input id="bookingCode"
+                                                class="_field_1y5z1_35" data-test-id="bet-booking-code-input"
+                                                maxlength="7" placeholder="Enter booking code" name="bookingCode"></div>
+                                    </div><button type="submit" data-test-id="load-betslip"
+                                        class="_button_1od8m_1 _primary_1od8m_63 _lg_1od8m_48 _square_1od8m_55 _fullWidth_1od8m_174 mt-2"><span
+                                            class="_title_1od8m_194">Load Betslip</span></button>
+                                </form>
+                                <div class="BetslipEmptyState_root__g2SwF">
+                                    <div class="BetslipEmptyState_emptyBetslipIllustration__bM3cb"><img width="184"
+                                            height="184" alt="" loading="lazy" data-test-id="betslip-empty-state-img"
+                                            src="img/empty-betslip.svg"></div><span
+                                        class="BetslipEmptyState_emptyBetslipText__C_chm text-lg bold">Betslip is
+                                        empty</span><a class="BetslipEmptyState_ctaLink__YEqGN"
+                                        data-test-id="auto-betslip-empty-state-cf-link-1"
+                                        href="https://www.betpawa.co.tz/learn-how-to-bet"><button type="button"
+                                            data-test-id="auto-betslip-empty-state-button-1"
+                                            class="_button_1od8m_1 _secondary_1od8m_77 _lg_1od8m_48 _square_1od8m_55 _fullWidth_1od8m_174"><span
+                                                class="_title_1od8m_194">Learn how to bet</span></button></a><a
+                                        class="BetslipEmptyState_ctaLink__YEqGN"
+                                        data-test-id="auto-betslip-empty-state-cf-link-2"
+                                        href="https://www.betpawa.co.tz/events?categoryId=2&amp;marketId=1X2"><button type="button"
+                                            data-test-id="auto-betslip-empty-state-button-2"
+                                            class="_button_1od8m_1 _outline_1od8m_91 _lg_1od8m_48 _square_1od8m_55 _fullWidth_1od8m_174"><span
+                                                class="_title_1od8m_194">Discover more sports</span></button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="showOnMobile">
+                <div class="MobileBottomMenu_container__kTnwW" data-has-progress-bar="true">
+                    <div class="MobileBottomMenu_bottomNavigation__pIIe2">
+                        <div class="MobileBottomMenu_progressBar__bT60f" data-test-id="bottom-progress-bar">
+                            <div class="MobileBottomMenu_progressBarText__6OHS1"><span
+                                    class="MobileBottomMenu_progressText__pJz0G text-xs"
+                                    data-test-id="bottom-progress-info">Add legs for up to a <b>1250% Win
+                                        Bonus.</b></span></div>
+                        </div>
+                        <div class="MobileBottomMenu_navigationMenu__3Bc85">
+                            <div class="MobileBottomMenu_navigationItem__AC3RU" data-test-id="bottom-menu-Menu"
+                                role="button" tabindex="0">
+                                <a class="MobileBottomMenu_actionLink__FlGn3" href="https://www.betpawa.co.tz/"><span
+                                        class="MobileBottomMenu_iconWrapper__ZCYOM"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                                            viewBox="0 0 24 24" fill="none"
+                                            class="_icon_108qn_1 MobileBottomMenu_menuIcon__GieIc"
+                                            data-test-id="bottom-navigation-icon-menu">
+                                            <path
+                                                d="M20 17C20.5523 17 21 17.4477 21 18C21 18.5523 20.5523 19 20 19H4C3.44772 19 3 18.5523 3 18C3 17.4477 3.44772 17 4 17H20ZM20 11C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H20ZM20 5C20.5523 5 21 5.44772 21 6C21 6.55228 20.5523 7 20 7H4C3.44772 7 3 6.55228 3 6C3 5.44772 3.44772 5 4 5H20Z"
+                                                fill="currentColor"></path>
+                                        </svg></span><span class="MobileBottomMenu_menuTitle__emngY text-xs">Menu</span>
+                                    </a>
+                            </div>
+                            <div class="MobileBottomMenu_navigationItem__AC3RU" data-test-id="bottom-menu-Sports"><a
+                                    class="MobileBottomMenu_actionLink__FlGn3"
+                                    data-test-id="bottom-navigation-link-Sports" href="https://www.betpawa.co.tz/events"><span
+                                        class="MobileBottomMenu_iconWrapper__ZCYOM"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                                            viewBox="0 0 24 24" fill="none"
+                                            class="_icon_108qn_1 MobileBottomMenu_menuIcon__GieIc"
+                                            data-test-id="bottom-navigation-icon-sports">
+                                            <path
+                                                d="M21 12C21 11.2995 20.917 10.6183 20.7656 9.96387C20.2213 10.1192 19.5843 10.3378 18.9795 10.5605C18.5601 10.715 18.1755 10.8636 17.8789 10.9814C17.7771 12.6507 17.3172 14.0284 16.8574 15.0205C16.632 15.5069 16.4039 15.9025 16.2168 16.1992C16.3984 16.4586 16.6293 16.7868 16.8838 17.1367C17.2697 17.6673 17.6878 18.2176 18.0518 18.6611C19.8628 17.0148 21 14.6403 21 12ZM8.55176 18.3047C8.21664 18.7753 7.82954 19.3042 7.46875 19.7744C8.7999 20.5519 10.3472 21 12 21C13.6094 21 15.1186 20.575 16.4258 19.835C16.0306 19.3479 15.6177 18.7963 15.2666 18.3135C14.9902 17.9335 14.7404 17.5794 14.5498 17.3066C13.1051 17.5515 11.7192 17.5395 10.6621 17.46C10.0944 17.4172 9.61342 17.3532 9.25781 17.2979C9.06927 17.5701 8.82269 17.9242 8.55176 18.3047ZM11.8506 7.83203C11.558 7.97981 11.1445 8.20076 10.6719 8.49023C9.80692 9.02005 8.7777 9.75891 7.91699 10.6689C7.92 10.7153 7.92249 10.7657 7.92676 10.8193C7.95403 11.1623 8.00871 11.6441 8.11816 12.1914C8.32076 13.2044 8.69531 14.3601 9.36035 15.2881C9.40103 15.2951 9.44499 15.3039 9.49219 15.3115C9.80808 15.3625 10.264 15.4236 10.8125 15.4648C11.8241 15.541 13.1176 15.5416 14.418 15.2959C14.4309 15.2766 14.446 15.2576 14.46 15.2363C14.6153 14.9993 14.8287 14.642 15.043 14.1797C15.4339 13.3361 15.8224 12.156 15.8887 10.7256C15.8717 10.7087 15.8549 10.6916 15.8379 10.6748C15.6125 10.4524 15.2872 10.1383 14.874 9.78418C14.1249 9.14209 13.1051 8.38467 11.9053 7.80469C11.8877 7.81348 11.8692 7.82263 11.8506 7.83203ZM15.9072 10.1934C15.9019 10.2364 15.9004 10.2728 15.9004 10.2998C15.9004 10.2639 15.9035 10.2285 15.9072 10.1934ZM16.0312 9.80762C16.0226 9.82345 16.0134 9.83869 16.0059 9.85449C16.0138 9.83856 16.0225 9.82309 16.0312 9.80762ZM16.3711 9.45117C16.2382 9.53104 16.1434 9.63202 16.0742 9.73633C16.1516 9.62298 16.2521 9.52528 16.3711 9.45117ZM16.4727 9.39746C16.452 9.40694 16.4323 9.41739 16.4131 9.42773C16.4325 9.41691 16.4524 9.40705 16.4727 9.39746ZM12.9004 6.0625C14.2535 6.73419 15.3738 7.57825 16.1758 8.26562C16.5655 8.5997 16.8829 8.90179 17.1191 9.13184C17.4303 9.00808 17.8391 8.84894 18.2881 8.68359C18.8399 8.48037 19.488 8.25441 20.1006 8.0752C18.7668 5.32743 16.0769 3.36046 12.9004 3.04492V6.0625ZM10.9004 3.06934C7.82484 3.4441 5.22849 5.36776 3.91699 8.03906C4.49963 8.2337 5.11948 8.47152 5.64844 8.68457C6.0262 8.83672 6.37277 8.98403 6.65039 9.10254C7.63358 8.10852 8.73838 7.33 9.62793 6.78516C10.1296 6.47789 10.5723 6.23932 10.9004 6.07227V3.06934ZM3 12C3 14.5986 4.10198 16.9392 5.86328 18.582C6.19571 18.1495 6.57322 17.6355 6.92285 17.1445C7.16864 16.7994 7.39321 16.475 7.57227 16.2168C6.77879 15.0142 6.37134 13.6544 6.15723 12.584C6.0292 11.9439 5.96473 11.3814 5.93262 10.9775C5.93241 10.9749 5.93185 10.9723 5.93164 10.9697C5.65373 10.8507 5.29448 10.6984 4.90137 10.54C4.34586 10.3163 3.75484 10.0949 3.24219 9.9248C3.0849 10.5911 3 11.2856 3 12ZM23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.9934 5.81446 1.11524 11.7949 1.00586C11.8295 1.00225 11.8649 1 11.9004 1C11.9118 1 11.9232 1.00157 11.9346 1.00195C11.9564 1.00183 11.9782 1 12 1C16.8109 1 20.8979 4.08929 22.3916 8.3916C22.4058 8.42569 22.4173 8.46099 22.4277 8.49707C22.7973 9.59759 23 10.775 23 12Z"
+                                                fill="currentColor"></path>
+                                        </svg></span><span
+                                        class="MobileBottomMenu_menuTitle__emngY text-xs">Sports</span></a></div>
+                            <div class="MobileBottomMenu_navigationItem__AC3RU" data-test-id="bottom-menu-Betslip"
+                                role="button" tabindex="0">
+                                <a class="MobileBottomMenu_actionLink__FlGn3 " href="https://www.betpawa.co.tz"><span
+                                        class="MobileBottomMenu_iconWrapper__ZCYOM"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                                            viewBox="0 0 24 24" fill="none"
+                                            class="_icon_108qn_1 MobileBottomMenu_menuIcon__GieIc"
+                                            data-test-id="bottom-navigation-icon-betslip">
+                                            <path
+                                                d="M15.6602 1.05958C15.9161 0.967056 16.2008 0.98225 16.4473 1.10548L18 1.88184L19.5527 1.10548C19.8626 0.950521 20.2306 0.967342 20.5254 1.14942C20.8202 1.33163 21 1.65343 21 2.00001V22C21 22.3466 20.8202 22.6684 20.5254 22.8506C20.2306 23.0327 19.8626 23.0495 19.5527 22.8945L18 22.1182L16.4473 22.8945C16.1657 23.0353 15.8343 23.0353 15.5527 22.8945L14 22.1182L12.4473 22.8945C12.1657 23.0353 11.8343 23.0353 11.5527 22.8945L10 22.1182L8.44727 22.8945C8.16574 23.0353 7.83426 23.0353 7.55273 22.8945L6 22.1182L4.44727 22.8945C4.13735 23.0495 3.76939 23.0327 3.47461 22.8506C3.17979 22.6684 3 22.3466 3 22V2.00001C3 1.65343 3.17979 1.33163 3.47461 1.14942C3.76939 0.967342 4.13735 0.950521 4.44727 1.10548L6 1.88184L7.55273 1.10548L7.66016 1.05958C7.91613 0.967056 8.20081 0.98225 8.44727 1.10548L10 1.88184L11.5527 1.10548L11.6602 1.05958C11.9161 0.967056 12.2008 0.98225 12.4473 1.10548L14 1.88184L15.5527 1.10548L15.6602 1.05958ZM14.4473 3.89454C14.1657 4.0353 13.8343 4.0353 13.5527 3.89454L12 3.11817L10.4473 3.89454C10.1657 4.0353 9.83426 4.0353 9.55273 3.89454L8 3.11817L6.44727 3.89454C6.16574 4.0353 5.83426 4.0353 5.55273 3.89454L5 3.61817V20.3818L5.55273 20.1055C5.83426 19.9647 6.16574 19.9647 6.44727 20.1055L8 20.8818L9.55273 20.1055C9.83426 19.9647 10.1657 19.9647 10.4473 20.1055L12 20.8818L13.5527 20.1055C13.8343 19.9647 14.1657 19.9647 14.4473 20.1055L16 20.8818L17.5527 20.1055C17.8343 19.9647 18.1657 19.9647 18.4473 20.1055L19 20.3818V3.61817L18.4473 3.89454C18.1657 4.0353 17.8343 4.0353 17.5527 3.89454L16 3.11817L14.4473 3.89454ZM13 15C13.5523 15 14 15.4477 14 16C14 16.5523 13.5523 17 13 17H8C7.44772 17 7 16.5523 7 16C7 15.4477 7.44772 15 8 15H13ZM16 11C16.5523 11 17 11.4477 17 12C17 12.5523 16.5523 13 16 13H8C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11H16ZM14 7.00001C14.5523 7.00001 15 7.44772 15 8.00001C15 8.55229 14.5523 9.00001 14 9.00001H8C7.44772 9.00001 7 8.55229 7 8.00001C7 7.44772 7.44772 7.00001 8 7.00001H14Z"
+                                                fill="currentColor"></path>
+                                        </svg></span><span
+                                        class="MobileBottomMenu_menuTitle__emngY text-xs">Betslip</span></a>
+                            </div>
+                            <div class="MobileBottomMenu_navigationItem__AC3RU" data-test-id="bottom-menu-Join"><a
+                                    class="MobileBottomMenu_actionLink__FlGn3"
+                                    data-test-id="bottom-navigation-link-Join" href="https://www.betpawa.co.tz/join-now"><span
+                                        class="MobileBottomMenu_iconWrapper__ZCYOM"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                                            viewBox="0 0 24 24" fill="none"
+                                            class="_icon_108qn_1 MobileBottomMenu_menuIcon__GieIc"
+                                            data-test-id="bottom-navigation-icon-join">
+                                            <path
+                                                d="M20 19V5C20 4.73478 19.8946 4.48051 19.707 4.29297C19.5195 4.10543 19.2652 4 19 4H15C14.4477 4 14 3.55228 14 3C14 2.44772 14.4477 2 15 2H19C19.7957 2 20.5585 2.3163 21.1211 2.87891C21.6837 3.44152 22 4.20435 22 5V19C22 19.7957 21.6837 20.5585 21.1211 21.1211C20.5585 21.6837 19.7957 22 19 22H15C14.4477 22 14 21.5523 14 21C14 20.4477 14.4477 20 15 20H19C19.2652 20 19.5195 19.8946 19.707 19.707C19.8946 19.5195 20 19.2652 20 19ZM9.29297 6.29297C9.68349 5.90244 10.3165 5.90244 10.707 6.29297L15.707 11.293C16.0976 11.6835 16.0976 12.3165 15.707 12.707L10.707 17.707C10.3165 18.0976 9.68349 18.0976 9.29297 17.707C8.90244 17.3165 8.90244 16.6835 9.29297 16.293L12.5859 13H3C2.44772 13 2 12.5523 2 12C2 11.4477 2.44772 11 3 11H12.5859L9.29297 7.70703C8.90244 7.31651 8.90244 6.68349 9.29297 6.29297Z"
+                                                fill="currentColor"></path>
+                                        </svg></span><span class="MobileBottomMenu_menuTitle__emngY text-xs">Join
+                                        Now</span></a></div>
+                            <div class="MobileBottomMenu_navigationItem__AC3RU" data-test-id="bottom-menu-Account"
+                                role="button" tabindex="0">
+                                <div class="MobileBottomMenu_actionLink__FlGn3"><span
+                                        class="MobileBottomMenu_iconWrapper__ZCYOM"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                                            viewBox="0 0 24 24" fill="none"
+                                            class="_icon_108qn_1 MobileBottomMenu_menuIcon__GieIc"
+                                            data-test-id="bottom-navigation-icon-account">
+                                            <path
+                                                d="M16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12C14.2091 12 16 10.2091 16 8ZM18 8C18 9.94598 17.0726 11.6742 15.6367 12.7705C16.6434 13.2154 17.571 13.8424 18.3643 14.6357C20.0521 16.3236 21 18.6131 21 21C21 21.5523 20.5523 22 20 22C19.4477 22 19 21.5523 19 21C19 19.1435 18.2629 17.3626 16.9502 16.0498C15.6374 14.7371 13.8565 14 12 14C10.1435 14 8.36256 14.7371 7.0498 16.0498C5.73705 17.3626 5 19.1435 5 21C5 21.5523 4.55228 22 4 22C3.44772 22 3 21.5523 3 21C3 18.6131 3.94791 16.3236 5.63574 14.6357C6.42882 13.8427 7.35593 13.2153 8.3623 12.7705C6.92681 11.6742 6 9.9457 6 8C6 4.68629 8.68629 2 12 2C15.3137 2 18 4.68629 18 8Z"
+                                                fill="currentColor"></path>
+                                        </svg></span><span
+                                        class="MobileBottomMenu_menuTitle__emngY text-xs">Account</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+<script>
+function toggleTaxDetails(taxHeader) {
+    const taxLabelSpan = taxHeader.querySelector('.TaxDetails_headerLabelGroup__SFPI6 span');
+    const taxContainer = taxHeader.parentElement;
+
+// 2. Function to toggle the state and update the UI
+  const isExpanded = taxHeader.getAttribute('aria-expanded') === 'true';
+  const newExpandedState = !isExpanded;
+  
+  // Toggle the ARIA state
+  taxHeader.setAttribute('aria-expanded', newExpandedState);
+  
+  // Update the Header Label and Amount Visibility
+  if (newExpandedState) {
+    // EXPANDED STATE:
+    // Change label to "Tax Details:"
+    taxLabelSpan.textContent = 'Tax Details:';
+    
+    // Hide the summary amount in the header (if it exists)
+    const amountWrapper = taxHeader.querySelector('.TaxDetails_amountWrapper__3wRvL');
+    if (amountWrapper) amountWrapper.style.display = 'none';
+
+    // Show/Create the detailed summary rows
+    let details = taxContainer.querySelector('.TaxDetails_summary__H1xI9');
+    if (!details) {
+      details = document.createElement('div');
+      details.className = 'TaxDetails_summary__H1xI9 text-xs';
+            details.innerHTML = `
+        <section class="TaxDetails_summaryRow__TQUM9">
+          <span>Net Winnings:</span>
+                    <span><span class="TaxDetails_currencyCode__YrBNH">TSH</span> <span>${taxHeader.dataset.netWinnings}</span></span>
+        </section>
+        <section class="TaxDetails_summaryRow__TQUM9">
+          <span>Withholding Tax 12%: </span>
+                    <span><span class="TaxDetails_currencyCode__YrBNH">TSH</span> <span>${taxHeader.dataset.whtTax}</span></span>
+        </section>
+      `;
+      taxContainer.appendChild(details);
+    } else {
+      details.style.display = 'block';
+    }
+  } else {
+    // COLLAPSED STATE:
+    // Change label back to "Withholding Tax 12%:"
+    taxLabelSpan.textContent = 'Withholding Tax 12%:';
+    
+    // Show the summary amount in the header again
+    const amountWrapper = taxHeader.querySelector('.TaxDetails_amountWrapper__3wRvL');
+    if (amountWrapper) amountWrapper.style.display = 'inline-flex';
+
+    // Hide the detailed summary rows
+    const details = taxContainer.querySelector('.TaxDetails_summary__H1xI9');
+    if (details) details.style.display = 'none';
+  }
+}
+
+// The tax header is created inside loadLatestBet(), so delegate events from document.
+document.addEventListener('click', (e) => {
+    const header = e.target.closest('[data-test-id="tax-details-header"]');
+    if (header) toggleTaxDetails(header);
+});
+document.addEventListener('keydown', (e) => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('[data-test-id="tax-details-header"]')) {
+    e.preventDefault();
+        toggleTaxDetails(e.target);
+  }
+});
+ </script>
+
+
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+    import { getFirestore, collection, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+      const firebaseConfig = {
+                      apiKey: "AIzaSyBdTXzKeaYeNefAcZIPwlbpKeN0MqOZEps",
+                        authDomain: "imaapp-c4db7.firebaseapp.com",
+                        projectId: "imaapp-c4db7",
+                        storageBucket: "imaapp-c4db7.firebasestorage.app",
+                        messagingSenderId: "609631256225",
+                        appId: "1:609631256225:web:6caebd27e33f3e9b6c7ae0",
+                        measurementId: "G-LNT9SGF94L"
+                };
+
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+
+
+
+    async function loadLatestBet() {
+        const betsRef = collection(db, "bets");
+        const q = query(betsRef, orderBy("createdAt", "desc"), limit(1));
+        const querySnapshot = await getDocs(q);
+
+        if (querySnapshot.empty) {
+            document.getElementById("betContainer").innerHTML = "<p>No bets found.</p>";
+            return;
+        }
+
+        querySnapshot.forEach(docSnap => {
+            const bet = docSnap.data();
+            
+            // Display main bet details
+            const betidContainer_1 = document.getElementById("bet_id_1");
+
+            betidContainer_1.innerHTML = `
+            <span data-test-id="bet-slip-id">Bet ID #${bet.bet_id.slice(0,7)}***</span>
+          
+            `;
+
+
+
+           
+
+            
+            const winningBigContainer_1 = document.getElementById("winning-big-container_1");
+          
+
+            winningBigContainer_1.innerHTML = `
+
+             <span class="text-sm" data-test-id="bet-slip-win-banner-title">Congratulations on</span>
+             <span class="BetSlipWinBanner_winner__WiX4z text-base bold" data-test-id="bet-slip-win-banner-amount">Winning TSH ${bet.bet_details.payout.toLocaleString("sw-TZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+
+
+            `;
+
+           
+            // Add this event delegation at the top level
+
+            const totalOddsDiv_1= document.getElementById("bet-win-container_1");
+
+            totalOddsDiv_1.innerHTML = `
+
+
+                        <div class="BetslipSummary_payoutRow__u7aBP">
+                                                <span class="BetslipSummary_payoutRowLabel__2qdZG text-xs">Odds</span>
+                                                <span class="BetslipSummary_payoutRowValue__FvzIf text-sm bold" data-test-id="betslip-summary-total-odds">${bet.bet_details.totalOdds.toLocaleString("sw-TZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                                            </div>
+
+                                            <div class="BetslipSummary_payoutRow__u7aBP">
+                                                <span class="BetslipSummary_payoutRowLabel__2qdZG text-xs">Stake</span>
+                                                <span class="BetslipSummary_payoutRowValue__FvzIf text-sm bold" data-test-id="betslip-summary-stake-value">
+                                                    <span class="bold">
+                                                        <span class="BetslipSummary_currencySymbol__pyTzF text-xxs">TSH</span>
+                                                        <span>${bet.bet_details.stake.toLocaleString("sw-TZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                                                    </span>
+                                                </span>
+                                            </div>
+
+                                             <div class="BetslipSummary_payoutRow__u7aBP">
+                                                <span class="BetslipSummary_payoutRowLabel__2qdZG text-xs" data-test-id="betslip-summary-potential-winnings">Potential Winnings</span>
+                                                <span class="BetslipSummary_payoutRowValue__FvzIf text-sm bold" data-test-id="betslip-summary-potential-winnings-value">
+                                                    <span class="bold">
+                                                        <span class="BetslipSummary_currencySymbol__pyTzF text-xxs">TSH</span>
+                                                        <span>${bet.bet_details.potential_winnings.toLocaleString("sw-TZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                         
+
+                                             
+                                            <div class="TaxDetails_taxDetails__0Lg2E BetslipSummary_taxDetailsBox__uSXrE">
+                                                <section class="TaxDetails_header__ngA7K text-xs" role="button"
+                                                    tabindex="0" aria-expanded="false" data-test-id="tax-details-header"
+                                                    data-net-winnings="${bet.bet_details.payout.toLocaleString("sw-TZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}"
+                                                    data-wht-tax="${bet.bet_details.wht_tax.toLocaleString("sw-TZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}">
+                                                    <span class="TaxDetails_headerLabelGroup__SFPI6">
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16px"
+                                                            height="16px" viewBox="0 0 24 24" fill="none"
+                                                            class="_icon_108qn_1 TaxDetails_chevron__p1xXl">
+                                                            <path d="M17.293 9.29295C17.6835 8.90243 18.3166 8.90243 18.7071 9.29295C19.0976 9.68348 19.0976 10.3165 18.7071 10.707L12.7071 16.707C12.3166 17.0975 11.6835 17.0975 11.293 16.707L5.29302 10.707C4.90249 10.3165 4.90249 9.68348 5.29302 9.29295C5.68354 8.90243 6.31655 8.90243 6.70708 9.29295L12 14.5859L17.293 9.29295Z" fill="currentColor"></path>
+                                                        </svg>
+                                                        <span>Withholding Tax 12%:</span>
+                                                    </span>
+                                                    <span class="TaxDetails_amountWrapper__3wRvL">
+                                                        <span class="">
+                                                            <span class="TaxDetails_currencyCode__YrBNH">TSH</span>
+                                                            <span>${bet.bet_details.wht_tax.toLocaleString("sw-TZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                                                        </span>
+                                                    </span>
+                                                </section>
+                                            </div>
+
+
+                                            <div class="BetslipSummary_payoutRow__u7aBP">
+                                                <span class="BetslipSummary_payoutRowLabel__2qdZG text-xs bold" data-test-id="betslip-summary-payout">Payout</span>
+                                                <span class="BetslipSummary_payoutRowValue__FvzIf text-sm bold" data-test-id="betslip-summary-payout-value">
+                                                    <span class="bold">
+                                                        <span class="BetslipSummary_currencySymbol__pyTzF text-xxs">TSH</span>
+                                                        <span>${bet.bet_details.payout.toLocaleString("sw-TZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                                                    </span>
+                                                </span>
+                                            </div>
+
+
+                                           
+
+                                                                `;
+
+
+            
+            
+
+            function format2dp(value) {
+                const n = Number(value);
+                if (Number.isNaN(n)) return ""; 
+                return n.toFixed(2); 
+            }
+
+            
+            function checkResult(value) {
+                          // Orodha ya matokeo ambayo hayapaswi kuonyeshwa
+                          const blockedResults = [
+                            "1-2", "1-0", "1-1", "2-0", "3-0",
+                            "4-0", "5-0", "4-1", "3-1", "3-2", "2-2",
+                            "0-1", "0-2", "0-3", "1-4", "1-5", "1-3",
+                            "5-1", "2-1", "2-3", "0-0",
+                          ];
+                     const score = String(value).trim();
+                        //   return blockedResults.includes(score) ? score : "Other";
+                        return blockedResults.includes(score) ? score : "Other";
+                        }
+
+            // Display matches
+            const matchesContainer_1 = document.getElementById("match_container_1");
+            matchesContainer_1.innerHTML = "";
+                        bet.matches.forEach((match, idx) => {
+                const matchDiv = document.createElement("div");
+                matchDiv.className = "event";
+                matchDiv.innerHTML = `
+
+
+
+                 <div class="BetslipSelection_selection__1vAs_" data-test-id="bet-selection" >
+                                            <div class="BetslipSelection_topRow__S7dqh text-xs">
+                                                    <div class="BetslipSelection_topLeft__yRR9G"><span
+                                                            class="BetslipSelection_placedTime__kWOgV">${match.bet_details.match_time},  ${match.bet_details.match_date}</span></div>
+                                                    <div class="BetslipSelection_priceGroup__LU9Gc text-sm bold"
+                                                        data-test-class="stake-info"><span
+                                                            class="StatusIndicator_dot__TZhaG StatusIndicator_dotWon__7egmf"
+                                                            data-test-id="bet-result-won"></span><b
+                                                            class="BetslipSelection_priceWon__rziOv"
+                                                            data-test-id="result-stake">${format2dp(match.bet_details.odds)}</b></div>
+                                                </div>
+                                                <div class="BetslipSelection_eventRow__WhyMU text-xs"
+                                                    data-test-id="bet-selection-item-content"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="16px" height="16px"
+                                                        viewBox="0 0 24 24" fill="none"
+                                                        class="_icon_108qn_1 BetslipSelection_sportIcon__31Sfz">
+                                                        <path
+                                                            d="M21 12C21 11.2995 20.917 10.6183 20.7656 9.96387C20.2213 10.1192 19.5843 10.3378 18.9795 10.5605C18.5601 10.715 18.1755 10.8636 17.8789 10.9814C17.7771 12.6507 17.3172 14.0284 16.8574 15.0205C16.632 15.5069 16.4039 15.9025 16.2168 16.1992C16.3984 16.4586 16.6293 16.7868 16.8838 17.1367C17.2697 17.6673 17.6878 18.2176 18.0518 18.6611C19.8628 17.0148 21 14.6403 21 12ZM8.55176 18.3047C8.21664 18.7753 7.82954 19.3042 7.46875 19.7744C8.7999 20.5519 10.3472 21 12 21C13.6094 21 15.1186 20.575 16.4258 19.835C16.0306 19.3479 15.6177 18.7963 15.2666 18.3135C14.9902 17.9335 14.7404 17.5794 14.5498 17.3066C13.1051 17.5515 11.7192 17.5395 10.6621 17.46C10.0944 17.4172 9.61342 17.3532 9.25781 17.2979C9.06927 17.5701 8.82269 17.9242 8.55176 18.3047ZM11.8506 7.83203C11.558 7.97981 11.1445 8.20076 10.6719 8.49023C9.80692 9.02005 8.7777 9.75891 7.91699 10.6689C7.92 10.7153 7.92249 10.7657 7.92676 10.8193C7.95403 11.1623 8.00871 11.6441 8.11816 12.1914C8.32076 13.2044 8.69531 14.3601 9.36035 15.2881C9.40103 15.2951 9.44499 15.3039 9.49219 15.3115C9.80808 15.3625 10.264 15.4236 10.8125 15.4648C11.8241 15.541 13.1176 15.5416 14.418 15.2959C14.4309 15.2766 14.446 15.2576 14.46 15.2363C14.6153 14.9993 14.8287 14.642 15.043 14.1797C15.4339 13.3361 15.8224 12.156 15.8887 10.7256C15.8717 10.7087 15.8549 10.6916 15.8379 10.6748C15.6125 10.4524 15.2872 10.1383 14.874 9.78418C14.1249 9.14209 13.1051 8.38467 11.9053 7.80469C11.8877 7.81348 11.8692 7.82263 11.8506 7.83203ZM15.9072 10.1934C15.9019 10.2364 15.9004 10.2728 15.9004 10.2998C15.9004 10.2639 15.9035 10.2285 15.9072 10.1934ZM16.0312 9.80762C16.0226 9.82345 16.0134 9.83869 16.0059 9.85449C16.0138 9.83856 16.0225 9.82309 16.0312 9.80762ZM16.3711 9.45117C16.2382 9.53104 16.1434 9.63202 16.0742 9.73633C16.1516 9.62298 16.2521 9.52528 16.3711 9.45117ZM16.4727 9.39746C16.452 9.40694 16.4323 9.41739 16.4131 9.42773C16.4325 9.41691 16.4524 9.40705 16.4727 9.39746ZM12.9004 6.0625C14.2535 6.73419 15.3738 7.57825 16.1758 8.26562C16.5655 8.5997 16.8829 8.90179 17.1191 9.13184C17.4303 9.00808 17.8391 8.84894 18.2881 8.68359C18.8399 8.48037 19.488 8.25441 20.1006 8.0752C18.7668 5.32743 16.0769 3.36046 12.9004 3.04492V6.0625ZM10.9004 3.06934C7.82484 3.4441 5.22849 5.36776 3.91699 8.03906C4.49963 8.2337 5.11948 8.47152 5.64844 8.68457C6.0262 8.83672 6.37277 8.98403 6.65039 9.10254C7.63358 8.10852 8.73838 7.33 9.62793 6.78516C10.1296 6.47789 10.5723 6.23932 10.9004 6.07227V3.06934ZM3 12C3 14.5986 4.10198 16.9392 5.86328 18.582C6.19571 18.1495 6.57322 17.6355 6.92285 17.1445C7.16864 16.7994 7.39321 16.475 7.57227 16.2168C6.77879 15.0142 6.37134 13.6544 6.15723 12.584C6.0292 11.9439 5.96473 11.3814 5.93262 10.9775C5.93241 10.9749 5.93185 10.9723 5.93164 10.9697C5.65373 10.8507 5.29448 10.6984 4.90137 10.54C4.34586 10.3163 3.75484 10.0949 3.24219 9.9248C3.0849 10.5911 3 11.2856 3 12ZM23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.9934 5.81446 1.11524 11.7949 1.00586C11.8295 1.00225 11.8649 1 11.9004 1C11.9118 1 11.9232 1.00157 11.9346 1.00195C11.9564 1.00183 11.9782 1 12 1C16.8109 1 20.8979 4.08929 22.3916 8.3916C22.4058 8.42569 22.4173 8.46099 22.4277 8.49707C22.7973 9.59759 23 10.775 23 12Z"
+                                                            fill="currentColor"></path>
+                                                    </svg><span class="BetslipSelection_eventName__E081m"
+                                                        data-test-id="match-name">${match.home_team} - ${match.away_team}</span><span
+                                                        class="BetslipSelection_score__EU4_6 text-xs bold"
+                                                        data-test-id="score-text">${match.full_time_score}</span></div>
+                                                <div class="BetslipSelection_competitionRow__VSKIv text-xs"><span
+                                                        class="BetslipSelection_competition__VW1uS">${match.league}</span></div>
+                                                <div class="BetslipSelection_marketRow__juzHf"><span
+                                                        class="BetslipSelection_market__4I_Pz text-xs bold"
+                                                        data-test-id="market-name">Correct Score | Full Time - ${match.full_time_score}</span><span
+                                                        class="BetslipSelection_marketIcons__sSzFF"></span></div>
+                                            </div>
+
+
+
+
+
+                `;
+                matchesContainer_1.appendChild(matchDiv);
+            });
+
+
+          
+            const betPlaceAt_1 = document.getElementById("bet_place_at_1");
+            betPlaceAt_1.innerHTML = ` 
+                    Bet placed on ${bet.bet_details.bet_time}
+                    
+            `;
+
+
+
+
+            // Initialize tax details panel as closed
+            const taxPanel = document.querySelector('.expansion-panel');
+            if (taxPanel) {
+                taxPanel.classList.remove('open');
+                taxPanel.classList.add('closed');
+            }
+        });
+    }
+
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        loadLatestBet();
+    });
+        </script>
+ 
+</body>
+
+</html>

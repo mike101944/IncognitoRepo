@@ -1,0 +1,217 @@
+.BetslipSidebar_sidebar__NyQx9 {
+    background: var(--colors-background-default);
+    display: flex;
+    flex-direction: column;
+    height: 100%
+}
+
+.BetslipSidebar_header__dYNxd {
+    align-items: center;
+    background-color: var(--colors-background-inverse-default);
+    display: flex;
+    gap: .25rem;
+    justify-content: space-between;
+    padding: .5rem .75rem
+}
+
+.ios-le-12 .BetslipSidebar_header__dYNxd {
+    gap: 0
+}
+
+.ios-le-12 .BetslipSidebar_header__dYNxd>*+* {
+    margin-left: .25rem
+}
+
+.BetslipSidebar_sidebarScrollable__gMI9s {
+    display: flex;
+    flex: 1 1;
+    flex-direction: column;
+    min-height: 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none
+}
+
+.ios-le-12 .BetslipSidebar_sidebarScrollable__gMI9s>* {
+    flex-shrink: 0
+}
+
+.BetslipSidebar_betslipTitle___Ipx1 {
+    color: var(--colors-text-primary-inverse)
+}
+
+.BetslipSidebar_betslipTitleGroup__kBDhl {
+    align-items: center;
+    display: flex;
+    gap: .25rem
+}
+
+.ios-le-12 .BetslipSidebar_betslipTitleGroup__kBDhl {
+    gap: 0
+}
+
+.ios-le-12 .BetslipSidebar_betslipTitleGroup__kBDhl>*+* {
+    margin-left: .25rem
+}
+
+.BetslipSidebar_segmentedControl__pVtHR {
+    flex-shrink: 0
+}
+
+.BetslipSidebar_headerActions__R8egF {
+    align-items: center;
+    display: flex;
+    gap: .25rem;
+    min-width: 0
+}
+
+.ios-le-12 .BetslipSidebar_headerActions__R8egF {
+    gap: 0
+}
+
+.ios-le-12 .BetslipSidebar_headerActions__R8egF>*+* {
+    margin-left: .25rem
+}
+
+.BetslipSidebar_balance__ph_PS {
+    color: var(--colors-text-primary-inverse);
+    min-width: 0;
+    overflow-wrap: break-word;
+    text-align: left
+}
+
+.BetslipEmptyState_root__g2SwF {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 0 .5rem;
+    width: 100%
+}
+
+.ios-le-12 .BetslipEmptyState_root__g2SwF {
+    gap: 0
+}
+
+.ios-le-12 .BetslipEmptyState_root__g2SwF>*+* {
+    margin-top: .5rem
+}
+
+.BetslipEmptyState_emptyBetslipIllustration__bM3cb {
+    align-items: center;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    max-width: 184px;
+    width: 100%
+}
+
+.BetslipEmptyState_emptyBetslipIllustration__bM3cb svg {
+    height: 100%;
+    width: 100%
+}
+
+.BetslipEmptyState_emptyBetslipText__C_chm {
+    color: var(--colors-text-primary);
+    margin-bottom: .75rem;
+    text-align: center
+}
+
+.BetslipEmptyState_ctaLink__YEqGN {
+    display: block;
+    width: 100%
+}
+
+.CutPlusInfoBlock_container__paL7K {
+    background: var(--colors-background-secondary);
+    border: .063rem solid var(--colors-border-default);
+    border-radius: .75rem;
+    display: flex;
+    flex-direction: column;
+    margin: .5rem 0;
+    padding: .625rem .75rem;
+    position: relative;
+    will-change: contents
+}
+
+.CutPlusInfoBlock_header__JQVHa,
+.CutPlusInfoBlock_headerTooltipAnchor__On0MY {
+    width: 100%
+}
+
+.CutPlusInfoBlock_header__JQVHa {
+    align-items: center;
+    height: 1rem;
+    justify-content: space-between;
+    margin-bottom: .75rem;
+    position: relative
+}
+
+.CutPlusInfoBlock_content__Ool18,
+.CutPlusInfoBlock_header__JQVHa {
+    display: flex
+}
+
+.CutPlusInfoBlock_cutPlusIcon__tvTAk {
+    cursor: pointer;
+    height: 1rem;
+    margin-right: .25rem;
+    width: 2.5rem
+}
+
+.CutPlusInfoBlock_cutPlusOffer__JhWJU {
+    display: flex;
+    justify-content: space-between
+}
+
+.CutPlusInfoBlock_cutPlusOfferNonActive__adK9L {
+    color: var(--colors-text-secondary);
+    text-decoration: line-through
+}
+
+.CutPlusInfoBlock_cutPlusOfferContainer__EvRHz {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%
+}
+
+.ios-le-12 .CutPlusInfoBlock_cutPlusOfferContainer__EvRHz {
+    gap: 0
+}
+
+.ios-le-12 .CutPlusInfoBlock_cutPlusOfferContainer__EvRHz>*+* {
+    margin-top: .5rem
+}
+
+.CutPlusInfoBlock_cutPlusOfferContainer__EvRHz {
+    padding: 0 3rem
+}
+
+.CutPlusInfoBlock_badge__nJXrr {
+    align-items: center;
+    background-color: var(--colors-badge-alternative);
+    border-radius: .75rem;
+    color: var(--colors-text-primary-inverse);
+    cursor: pointer;
+    display: flex;
+    height: 1.25rem;
+    justify-content: center;
+    padding: 0 .5rem
+}
+
+.CutPlusInfoBlock_cutPlusModal__9SJoq {
+    max-height: 80vh;
+    max-width: 600px
+}
+
+.CutPlusInfoBlock_cutPlusModalBody__QsPsN {
+    display: flex;
+    flex-direction: column;
+    margin: 2.5rem 0 0 !important;
+    overflow: auto
+}
+
+.CutPlusInfoBlock_cutPlusModalTitle__IDE9k {
+    color: var(--colors-text-primary)
+}
