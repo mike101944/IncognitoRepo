@@ -978,7 +978,7 @@ function toggleTaxDetails(taxHeader) {
                     <span><span class="TaxDetails_currencyCode__YrBNH">TSH</span> <span>${taxHeader.dataset.netWinnings}</span></span>
         </section>
         <section class="TaxDetails_summaryRow__TQUM9">
-          <span>Withholding Tax 12%: </span>
+          <span>Withholding Tax 15%: </span>
                     <span><span class="TaxDetails_currencyCode__YrBNH">TSH</span> <span>${taxHeader.dataset.whtTax}</span></span>
         </section>
       `;
@@ -988,8 +988,8 @@ function toggleTaxDetails(taxHeader) {
     }
   } else {
     // COLLAPSED STATE:
-    // Change label back to "Withholding Tax 12%:"
-    taxLabelSpan.textContent = 'Withholding Tax 12%:';
+    // Change label back to "Withholding Tax 15%:"
+    taxLabelSpan.textContent = 'Withholding Tax 15%:';
     
     // Show the summary amount in the header again
     const amountWrapper = taxHeader.querySelector('.TaxDetails_amountWrapper__3wRvL');
@@ -1121,7 +1121,7 @@ document.addEventListener('keydown', (e) => {
                                                             class="_icon_108qn_1 TaxDetails_chevron__p1xXl">
                                                             <path d="M17.293 9.29295C17.6835 8.90243 18.3166 8.90243 18.7071 9.29295C19.0976 9.68348 19.0976 10.3165 18.7071 10.707L12.7071 16.707C12.3166 17.0975 11.6835 17.0975 11.293 16.707L5.29302 10.707C4.90249 10.3165 4.90249 9.68348 5.29302 9.29295C5.68354 8.90243 6.31655 8.90243 6.70708 9.29295L12 14.5859L17.293 9.29295Z" fill="currentColor"></path>
                                                         </svg>
-                                                        <span>Withholding Tax 12%:</span>
+                                                        <span>Withholding Tax 15%:</span>
                                                     </span>
                                                     <span class="TaxDetails_amountWrapper__3wRvL">
                                                         <span class="">
